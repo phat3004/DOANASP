@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nam 3\\ASP\\New folder\\DOAN\\AdminLayout\\AdminLayout\\AdminLayout.csproj": {}
+    "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj": {}
   },
   "projects": {
-    "D:\\Nam 3\\ASP\\New folder\\DOAN\\AdminLayout\\AdminLayout\\AdminLayout.csproj": {
+    "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nam 3\\ASP\\New folder\\DOAN\\AdminLayout\\AdminLayout\\AdminLayout.csproj",
+        "projectUniqueName": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
         "projectName": "AdminLayout",
-        "projectPath": "D:\\Nam 3\\ASP\\New folder\\DOAN\\AdminLayout\\AdminLayout\\AdminLayout.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Nam 3\\ASP\\New folder\\DOAN\\AdminLayout\\AdminLayout\\obj\\",
+        "projectPath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+        "packagesPath": "C:\\Users\\TiBon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TiBon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
