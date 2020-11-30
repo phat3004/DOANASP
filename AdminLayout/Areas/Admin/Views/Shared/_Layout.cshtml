@@ -1,0 +1,12 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("_HeadPartial.cshtml")
+    @RenderSection("css", required: false)
+</head>
+<body>
+    @RenderBody()
+    @await Html.PartialAsync("_FootPartial.cshtml")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
