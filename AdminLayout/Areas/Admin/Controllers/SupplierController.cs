@@ -11,23 +11,22 @@ using AdminLayout.Areas.Admin.Models;
 namespace AdminLayout.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class PostController : Controller
+    public class SupplierController : Controller
     {
         private readonly DPContext _context;
 
-        public PostController(DPContext context)
+        public SupplierController(DPContext context)
         {
             _context = context;
         }
 
-        // GET: Admin/Post
+        // GET: Admin/Supplier
         public async Task<IActionResult> Index()
         {
-            var dPContext = _context.Post.Include(p => p.Category);
-            return View(await dPContext.ToListAsync());
+            return View(await _context.Supplier.ToListAsync());
         }
 
-        // GET: Admin/Post/Details/5
+        // GET: Admin/Supplier/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,42 +34,39 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var postModel = await _context.Post
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.IDPost == id);
-            if (postModel == null)
+            var supplierModel = await _context.Supplier
+                .FirstOrDefaultAsync(m => m.SupplierID == id);
+            if (supplierModel == null)
             {
                 return NotFound();
             }
 
-            return View(postModel);
+            return View(supplierModel);
         }
 
-        // GET: Admin/Post/Create
+        // GET: Admin/Supplier/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Category, "IDCategory", "IDCategory");
             return View();
         }
 
-        // POST: Admin/Post/Create
+        // POST: Admin/Supplier/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDPost,Img,Title,Description,Content,Author,CategoryID")] PostModel postModel)
+        public async Task<IActionResult> Create([Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(postModel);
+                _context.Add(supplierModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "IDCategory", "IDCategory", postModel.CategoryID);
-            return View(postModel);
+            return View(supplierModel);
         }
 
-        // GET: Admin/Post/Edit/5
+        // GET: Admin/Supplier/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,23 +74,22 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var postModel = await _context.Post.FindAsync(id);
-            if (postModel == null)
+            var supplierModel = await _context.Supplier.FindAsync(id);
+            if (supplierModel == null)
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "IDCategory", "IDCategory", postModel.CategoryID);
-            return View(postModel);
+            return View(supplierModel);
         }
 
-        // POST: Admin/Post/Edit/5
+        // POST: Admin/Supplier/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDPost,Img,Title,Description,Content,Author,CategoryID")] PostModel postModel)
+        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel)
         {
-            if (id != postModel.IDPost)
+            if (id != supplierModel.SupplierID)
             {
                 return NotFound();
             }
@@ -103,12 +98,12 @@ namespace AdminLayout.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(postModel);
+                    _context.Update(supplierModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PostModelExists(postModel.IDPost))
+                    if (!SupplierModelExists(supplierModel.SupplierID))
                     {
                         return NotFound();
                     }
@@ -119,11 +114,10 @@ namespace AdminLayout.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "IDCategory", "IDCategory", postModel.CategoryID);
-            return View(postModel);
+            return View(supplierModel);
         }
 
-        // GET: Admin/Post/Delete/5
+        // GET: Admin/Supplier/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,31 +125,30 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var postModel = await _context.Post
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.IDPost == id);
-            if (postModel == null)
+            var supplierModel = await _context.Supplier
+                .FirstOrDefaultAsync(m => m.SupplierID == id);
+            if (supplierModel == null)
             {
                 return NotFound();
             }
 
-            return View(postModel);
+            return View(supplierModel);
         }
 
-        // POST: Admin/Post/Delete/5
+        // POST: Admin/Supplier/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var postModel = await _context.Post.FindAsync(id);
-            _context.Post.Remove(postModel);
+            var supplierModel = await _context.Supplier.FindAsync(id);
+            _context.Supplier.Remove(supplierModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PostModelExists(int id)
+        private bool SupplierModelExists(int id)
         {
-            return _context.Post.Any(e => e.IDPost == id);
+            return _context.Supplier.Any(e => e.SupplierID == id);
         }
     }
 }

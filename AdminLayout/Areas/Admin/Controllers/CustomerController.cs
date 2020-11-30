@@ -11,22 +11,22 @@ using AdminLayout.Areas.Admin.Models;
 namespace AdminLayout.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CategoryController : Controller
+    public class CustomerController : Controller
     {
         private readonly DPContext _context;
 
-        public CategoryController(DPContext context)
+        public CustomerController(DPContext context)
         {
             _context = context;
         }
 
-        // GET: Admin/Category
+        // GET: Admin/Customer
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Category.ToListAsync());
+            return View(await _context.Customer.ToListAsync());
         }
 
-        // GET: Admin/Category/Details/5
+        // GET: Admin/Customer/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,39 +34,39 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryModel = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryID == id);
-            if (categoryModel == null)
+            var customerModel = await _context.Customer
+                .FirstOrDefaultAsync(m => m.CustomerID == id);
+            if (customerModel == null)
             {
                 return NotFound();
             }
 
-            return View(categoryModel);
+            return View(customerModel);
         }
 
-        // GET: Admin/Category/Create
+        // GET: Admin/Customer/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Category/Create
+        // POST: Admin/Customer/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryID,Name")] CategoryModel categoryModel)
+        public async Task<IActionResult> Create([Bind("CustomerID,Name,Password,Email")] CustomerModel customerModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categoryModel);
+                _context.Add(customerModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(categoryModel);
+            return View(customerModel);
         }
 
-        // GET: Admin/Category/Edit/5
+        // GET: Admin/Customer/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +74,22 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryModel = await _context.Category.FindAsync(id);
-            if (categoryModel == null)
+            var customerModel = await _context.Customer.FindAsync(id);
+            if (customerModel == null)
             {
                 return NotFound();
             }
-            return View(categoryModel);
+            return View(customerModel);
         }
 
-        // POST: Admin/Category/Edit/5
+        // POST: Admin/Customer/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryID,Name")] CategoryModel categoryModel)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,Name,Password,Email")] CustomerModel customerModel)
         {
-            if (id != categoryModel.CategoryID)
+            if (id != customerModel.CustomerID)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace AdminLayout.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(categoryModel);
+                    _context.Update(customerModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryModelExists(categoryModel.CategoryID))
+                    if (!CustomerModelExists(customerModel.CustomerID))
                     {
                         return NotFound();
                     }
@@ -114,10 +114,10 @@ namespace AdminLayout.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(categoryModel);
+            return View(customerModel);
         }
 
-        // GET: Admin/Category/Delete/5
+        // GET: Admin/Customer/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,30 +125,30 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryModel = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryID == id);
-            if (categoryModel == null)
+            var customerModel = await _context.Customer
+                .FirstOrDefaultAsync(m => m.CustomerID == id);
+            if (customerModel == null)
             {
                 return NotFound();
             }
 
-            return View(categoryModel);
+            return View(customerModel);
         }
 
-        // POST: Admin/Category/Delete/5
+        // POST: Admin/Customer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categoryModel = await _context.Category.FindAsync(id);
-            _context.Category.Remove(categoryModel);
+            var customerModel = await _context.Customer.FindAsync(id);
+            _context.Customer.Remove(customerModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryModelExists(int id)
+        private bool CustomerModelExists(int id)
         {
-            return _context.Category.Any(e => e.CategoryID == id);
+            return _context.Customer.Any(e => e.CustomerID == id);
         }
     }
 }

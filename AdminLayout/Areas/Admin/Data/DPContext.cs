@@ -15,6 +15,11 @@ namespace AdminLayout.Areas.Admin.Data
         }
 
         public DbSet<CategoryModel> Category { get; set; }
-        public DbSet<PostModel> Post { get; set; }
+        public DbSet<ProductModel> Product { get; set; }
+        public DbSet<SupplierModel> Supplier { get; set; }
+        public DbSet<CustomerModel> Customer { get; set; }
+        public DbSet<AdminModel> Admin { get; set; }
+        public DbSet<OrderModel> Order { get; set; }
+        public DbSet<OrderDetailModel> OrderDetail { get; set; }
     }
 }

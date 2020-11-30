@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 
 namespace AdminLayout.Areas.Admin.Models
 {
-    public class PostModel
+    public class ProductModel
     {
         [Key]
-        public int IDPost { get; set; }
+        public int ProductID { get; set; }
         public string Img { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
         public string Content { get; set; }
-        public string Author { get; set; }
+        public int Status { get; set; }
+        public int SupplierID { get; set; }
+        [ForeignKey("SupplierID")]
         public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]
 
         public virtual CategoryModel Category { get; set; }
+        public virtual SupplierModel Supplier { get; set; }
     }
 }

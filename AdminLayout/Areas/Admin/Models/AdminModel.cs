@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace AdminLayout.Areas.Admin.Models
 {
-    public class CategoryModel
+    public class AdminModel
     {
         [Key]
-        public int CategoryID { get; set; }
+        public int AdminID { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public string Name { get; set; }
-        public ICollection<ProductModel> listProduct { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Imd { get; set; }
     }
 }
