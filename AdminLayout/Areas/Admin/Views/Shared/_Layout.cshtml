@@ -5,6 +5,8 @@
     @RenderSection("css", required: false)
 </head>
 <body>
+    @await Html.PartialAsync("_HeaderPartial.cshtml")
+    @await Html.PartialAsync("_TopbarPartial.cshtml")
     @RenderBody()
     @await Html.PartialAsync("_FootPartial.cshtml")
     @RenderSection("Scripts", required: false)

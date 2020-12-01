@@ -47,7 +47,7 @@ namespace AdminLayout
             {
                 endpoints.MapControllerRoute(
                    name: "Admin",
-                   pattern: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
+                   pattern: "{area:exists}/{controller=AdminHome}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
