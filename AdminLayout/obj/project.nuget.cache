@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4nLdRSu3+inMXQsxphBYl/ZJ5CUVk/MRamYocbYJY1GmJk516QbJy2Iu0NnK2p54Cck24lN1TKPn6DjN4309Xg==",
+  "dgSpecHash": "Y6SgsMu2Cad7NG9H6JgPvhEJncoQOnFco/sOggvxnXcPm54P6L8L1KCoJS8S20jGjXM5sCezeGhn5YiPqH3w6A==",
   "success": true,
-  "projectFilePath": "D:\\DOANASP\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

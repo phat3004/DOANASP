@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DOANASP\\DOANASP\\AdminLayout\\AdminLayout.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj": {}
   },
   "projects": {
-    "D:\\DOANASP\\DOANASP\\AdminLayout\\AdminLayout.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DOANASP\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
         "projectName": "AdminLayout",
-        "projectPath": "D:\\DOANASP\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\DOANASP\\DOANASP\\AdminLayout\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
