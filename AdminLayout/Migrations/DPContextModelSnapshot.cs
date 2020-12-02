@@ -84,7 +84,7 @@ namespace AdminLayout.Migrations
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.OrderDetailModel", b =>
                 {
-                    b.Property<int>("OrderID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -92,7 +92,7 @@ namespace AdminLayout.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderID1")
+                    b.Property<int>("OrderID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -101,9 +101,9 @@ namespace AdminLayout.Migrations
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderID");
+                    b.HasKey("ID");
 
-                    b.HasIndex("OrderID1");
+                    b.HasIndex("OrderID");
 
                     b.HasIndex("ProductID");
 
@@ -122,6 +122,9 @@ namespace AdminLayout.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderID");
 
@@ -195,7 +198,7 @@ namespace AdminLayout.Migrations
                 {
                     b.HasOne("AdminLayout.Areas.Admin.Models.OrderModel", "Order")
                         .WithMany()
-                        .HasForeignKey("OrderID1")
+                        .HasForeignKey("OrderID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AdminLayout.Migrations
 {
-    public partial class theway : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,6 +75,7 @@ namespace AdminLayout.Migrations
                     OrderID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerID = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -94,11 +95,11 @@ namespace AdminLayout.Migrations
                 {
                     ProductID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
+                    Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SupplierID = table.Column<int>(type: "int", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -123,19 +124,19 @@ namespace AdminLayout.Migrations
                 name: "OrderDetail",
                 columns: table => new
                 {
-                    OrderID = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderID = table.Column<int>(type: "int", nullable: false),
                     ProductID = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderID1 = table.Column<int>(type: "int", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderDetail", x => x.OrderID);
+                    table.PrimaryKey("PK_OrderDetail", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_OrderDetail_Order_OrderID1",
-                        column: x => x.OrderID1,
+                        name: "FK_OrderDetail_Order_OrderID",
+                        column: x => x.OrderID,
                         principalTable: "Order",
                         principalColumn: "OrderID",
                         onDelete: ReferentialAction.Cascade);
@@ -153,9 +154,9 @@ namespace AdminLayout.Migrations
                 column: "CustomerID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderDetail_OrderID1",
+                name: "IX_OrderDetail_OrderID",
                 table: "OrderDetail",
-                column: "OrderID1");
+                column: "OrderID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetail_ProductID",

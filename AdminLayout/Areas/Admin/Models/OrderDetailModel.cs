@@ -10,6 +10,7 @@ namespace AdminLayout.Areas.Admin.Models
     public class OrderDetailModel
     {
         [Key]
+        public int ID { get; set; }
         public int OrderID { get; set; }
         [ForeignKey("OrderID")]
         public int ProductID { get; set; }
