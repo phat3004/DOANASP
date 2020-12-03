@@ -10,15 +10,10 @@
 <h4>ProductModel</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-12">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProductID" />
-            <div class="form-group">
-                <label asp-for="Img" class="control-label"></label>
-                <input asp-for="Img" class="form-control" />
-                <span asp-validation-for="Img" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -31,22 +26,30 @@
             </div>
             <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
+                <textarea asp-for="Content" class="form-control"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <input asp-for="Status" class="form-control">
                 <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="custom-file">
+                <input accept="*.png||*.jpg||*.jpeg" name="ful" type="file" id="ful" class="custom-file-input" />
+                <label for="ful" class="custom-file-label">Choose image</label>
+            </div>
+            <div class="form-group">
+                <img src="~/pro/@Model.Img" alt="no img" class="img-thumbnail" id="imgPre" />
+                <input type="hidden" asp-for="Img" />
             </div>
             <div class="form-group">
                 <label asp-for="SupplierID" class="control-label"></label>
-                <select asp-for="SupplierID" class="form-control" asp-items="ViewBag.SupplierID"></select>
+                <select asp-for="SupplierID" class="form-control" asp-items="@(new SelectList(ViewBag.ListSupplier, "SupplierID","Name"))"></select>
                 <span asp-validation-for="SupplierID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryID" class="control-label"></label>
-                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                <select asp-for="CategoryID" class="form-control" asp-items="@(new SelectList(ViewBag.ListCategory, "CategoryID","Name"))"></select>
                 <span asp-validation-for="CategoryID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -62,4 +65,70 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+function ReadURL(input, idImg) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $(idImg).attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#ful").change(function () {
+                ReadURL(this, "#imgPre");
+            });</script>
+    <script>
+ClassicEditor
+                .create(document.querySelector('#Content'), {
+
+                    toolbar: {
+                        items: [
+                            'heading',
+                            '|',
+                            'bold',
+                            'italic',
+                            'link',
+                            'bulletedList',
+                            'numberedList',
+                            '|',
+                            'indent',
+                            'outdent',
+                            '|',
+                            'imageUpload',
+                            'blockQuote',
+                            'insertTable',
+                            'mediaEmbed',
+                            'undo',
+                            'redo'
+                        ]
+                    },
+                    language: 'vi',
+                    image: {
+                        toolbar: [
+                            'imageTextAlternative',
+                            'imageStyle:full',
+                            'imageStyle:side'
+                        ]
+                    },
+                    table: {
+                        contentToolbar: [
+                            'tableColumn',
+                            'tableRow',
+                            'mergeTableCells'
+                        ]
+                    },
+                    licenseKey: '',
+
+                })
+                .then(editor => {
+                    window.editor = editor;
+                })
+                .catch(error => {
+                    console.error('Oops, something went wrong!');
+                    console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+                    console.warn('Build id: mbf6ommreqn-8o65j7c6blw0');
+                    console.error(error);
+                });</script>
 }
