@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace AdminLayout.Areas.Admin.Controllers
 {
@@ -52,6 +54,8 @@ namespace AdminLayout.Areas.Admin.Controllers
         {
             ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID");
             ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID");
+            ViewBag.ListCategory = _context.Category.ToList();
+            ViewBag.ListSupplier = _context.Supplier.ToList();
             return View();
         }
 
@@ -60,16 +64,24 @@ namespace AdminLayout.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,Img,Name,Price,Content,Status,SupplierID,CategoryID")] ProductModel productModel)
+        public async Task<IActionResult> Create([Bind("ProductID,Img,Name,Price,Content,Status,SupplierID,CategoryID")] ProductModel productModel, IFormFile ful)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(productModel);
                 await _context.SaveChangesAsync();
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/pro", productModel.ProductID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await ful.CopyToAsync(stream);
+                }
+                productModel.Img = productModel.ProductID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1];
+                _context.Update(productModel);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", productModel.CategoryID);
-            ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID", productModel.SupplierID);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "ProductID", "CategoryID", productModel.Category);
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ProductID", "SupplierID", productModel.Supplier);
             return View(productModel);
         }
 
