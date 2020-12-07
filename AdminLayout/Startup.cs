@@ -1,6 +1,8 @@
 using AdminLayout.Areas.Admin.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +23,15 @@ namespace AdminLayout
         {
             services.AddControllersWithViews();
             services.AddDbContext<DPContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DPContext")));
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services
+               .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(
+                   options =>
+                   {
+                       options.LoginPath = "/admin/login/";
+                       options.LogoutPath = "/admin/logout/";
+                   });
 
         }
 
@@ -47,8 +58,8 @@ namespace AdminLayout
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                   name: "Admin",
-                   pattern: "{area:exists}/{controller=AdminHome}/{action=Index}/{id?}");
+                   name: "areas",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

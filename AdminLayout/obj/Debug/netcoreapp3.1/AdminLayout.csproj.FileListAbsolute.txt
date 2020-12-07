@@ -617,7 +617,6 @@ D:\DOANASP\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.pdb
 D:\DOANASP\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.genruntimeconfig.cache
 D:\DOANASP\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_HeaderPartial.cshtml.g.cs
 D:\DOANASP\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_TopbarPartial.cshtml.g.cs
-
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\appsettings.json
@@ -827,5 +826,6 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\staticwebassets\
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.dll
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.pdb
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.genruntimeconfig.cache
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminHome\Index.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Login.cshtml.g.cs
