@@ -973,7 +973,6 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.Razo
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.TagHelpers.input.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.TagHelpers.output.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.RazorCoreGenerate.cache
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminHome\Index.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Delete.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Details.cshtml.g.cs
@@ -984,7 +983,6 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admi
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Details.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Edit.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Index.cshtml.g.cs
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Login\Index.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Create.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Delete.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
