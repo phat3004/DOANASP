@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminLayout.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20201201022608_theway")]
-    partial class theway
+    [Migration("20201207055228_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace AdminLayout.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Imd")
+                    b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -42,6 +42,9 @@ namespace AdminLayout.Migrations
 
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("AdminID");
 
@@ -86,7 +89,7 @@ namespace AdminLayout.Migrations
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.OrderDetailModel", b =>
                 {
-                    b.Property<int>("OrderID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -94,7 +97,7 @@ namespace AdminLayout.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderID1")
+                    b.Property<int>("OrderID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -103,9 +106,9 @@ namespace AdminLayout.Migrations
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderID");
+                    b.HasKey("ID");
 
-                    b.HasIndex("OrderID1");
+                    b.HasIndex("OrderID");
 
                     b.HasIndex("ProductID");
 
@@ -124,6 +127,9 @@ namespace AdminLayout.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderID");
 
@@ -154,8 +160,11 @@ namespace AdminLayout.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<int>("SupplierID")
                         .HasColumnType("int");
@@ -197,7 +206,7 @@ namespace AdminLayout.Migrations
                 {
                     b.HasOne("AdminLayout.Areas.Admin.Models.OrderModel", "Order")
                         .WithMany()
-                        .HasForeignKey("OrderID1")
+                        .HasForeignKey("OrderID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
