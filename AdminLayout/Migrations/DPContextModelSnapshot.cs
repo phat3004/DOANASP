@@ -29,7 +29,7 @@ namespace AdminLayout.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Imd")
+                    b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -40,6 +40,9 @@ namespace AdminLayout.Migrations
 
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("AdminID");
 
@@ -155,8 +158,11 @@ namespace AdminLayout.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<int>("SupplierID")
                         .HasColumnType("int");

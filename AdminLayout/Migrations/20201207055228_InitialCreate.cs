@@ -17,7 +17,8 @@ namespace AdminLayout.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<int>(type: "int", nullable: false),
-                    Imd = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,7 +99,8 @@ namespace AdminLayout.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SupplierID = table.Column<int>(type: "int", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false)
