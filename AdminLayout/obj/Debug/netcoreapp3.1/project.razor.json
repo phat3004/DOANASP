@@ -14487,6 +14487,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\ASP.NET CORE MVC\\ASPDOAN\\AdminLayout\\Areas\\Admin\\Views\\AdminHome\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\AdminHome\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\ASP.NET CORE MVC\\ASPDOAN\\AdminLayout\\Areas\\Admin\\Views\\Supplier\\Details.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Supplier\\Details.cshtml",
       "FileKind": "mvc"
