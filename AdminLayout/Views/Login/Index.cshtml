@@ -1,0 +1,68 @@
+﻿
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-43">
+                    Login to continue
+                </span>
+                @using (Html.BeginForm("Login", "Home", FormMethod.Get))
+                {
+                    <p>Email: @Html.TextBox("Email",  null,
+                                                        new
+                                                        {
+                                                            @class = "span3",
+                                                            type = "email",
+                                                            required = "required"
+                                                        })</p><br/>
+                    <p>PassWord: @Html.TextBox("Pass", null,new
+                                                        {
+                                                            @class = "span3",
+                                                            type = "password",
+                                                            required = "required"
+                                                        })</p><br/>
+                    <p><input type="submit" value="Login" /></p>
+                }
+                @*<div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div>
+                            <a href="#" class="txt1">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            @Html.ActionLink("Login", "Index", "Home")
+                        </button>
+                    </div>*@
+
+                <div class="text-center p-t-46 p-b-20">
+                    <span class="txt2">
+                        or sign up using
+                    </span>
+                </div>
+            </form>
+            @*<div class="login100-more">
+                    <img src="~/login/images/Backgroud.jpg"/>
+                </div>*@
+        </div>
+    </div>
+</div>
+

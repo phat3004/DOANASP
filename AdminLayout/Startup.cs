@@ -21,6 +21,7 @@ namespace AdminLayout
         {
             services.AddControllersWithViews();
             services.AddDbContext<DPContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DPContext")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
