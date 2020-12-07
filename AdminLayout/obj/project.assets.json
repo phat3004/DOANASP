@@ -8965,19 +8965,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
+    "C:\\Users\\TiBon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+      "projectUniqueName": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj",
       "projectName": "AdminLayout",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\obj\\",
+      "projectPath": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj",
+      "packagesPath": "C:\\Users\\TiBon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TiBon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

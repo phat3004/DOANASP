@@ -14,6 +14,7 @@ namespace AdminLayout.Areas.Admin.Models
         public string Password { get; set; }
         public string Name { get; set; }
         public int PhoneNumber { get; set; }
-        public string Imd { get; set; }
+        public string Img { get; set; }
+        public bool Status { get; set; }
     }
 }

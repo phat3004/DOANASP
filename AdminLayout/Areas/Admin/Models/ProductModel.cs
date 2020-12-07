@@ -14,7 +14,8 @@ namespace AdminLayout.Areas.Admin.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Content { get; set; }
-        public int Status { get; set; }
+        public bool Status { get; set; }
+        public int Quantity { get; set; }
         public string Img { get; set; }
         public int SupplierID { get; set; }
         [ForeignKey("SupplierID")]
