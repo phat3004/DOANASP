@@ -18,7 +18,7 @@ namespace AdminLayout.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.listPost = _context.Product.ToList();
+            ViewBag.listProduct = _context.Product.ToList();
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
