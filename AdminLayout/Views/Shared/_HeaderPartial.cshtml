@@ -85,25 +85,25 @@
                             <li>
                                 <div class="row">
                                     <div class="col-menu col-md-3">
-                                        <h6 class="title">Shirt</h6>
+                                        <h6 class="title">Category</h6>
                                         <div class="content">
                                             <ul class="menu-col">
-                                                <li>@Html.ActionLink("Jackets", "Index", "Category")</li>
-                                                <li>@Html.ActionLink("Shirts", "Index", "Category")</li>
-                                                <li><a href="shop.html">Sweaters & Cardigans</a></li>
-                                                <li><a href="shop.html">T-shirts</a></li>
+                                                @foreach (var item in ViewBag.listCategory)
+                                                {
+                                                    <li>@Html.ActionLink((string)@item.Name, "Index", "Category", new { id = @item.CategoryID })</li>
+                                                }
                                             </ul>
                                         </div>
                                     </div>
                                     <!-- end col-3 -->
                                     <div class="col-menu col-md-3">
-                                        <h6 class="title">Trousers</h6>
+                                        <h6 class="title">Supplier</h6>
                                         <div class="content">
                                             <ul class="menu-col">
-                                                <li><a href="shop.html">Swimwear</a></li>
-                                                <li><a href="shop.html">Skirts</a></li>
-                                                <li><a href="shop.html">Jeans</a></li>
-                                                <li><a href="shop.html">Trousers</a></li>
+                                                @foreach (var item in ViewBag.listSupplier)
+                                                {
+                                                    <li>@Html.ActionLink((string)@item.Name, "Index", "Supplier", new { id = item.SupplierID })</li>
+                                                }
                                             </ul>
                                         </div>
                                     </div>

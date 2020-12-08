@@ -4,28 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using AdminLayout.Areas.Admin.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AdminLayout.Controllers
 {
-    public class CategoryController : Controller
+    public class SupplierController : Controller
     {
         private readonly DPContext _context;
 
-        public CategoryController(DPContext context)
+        public SupplierController(DPContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int? id)
+        public IActionResult Index()
         {
             ViewBag.listPost = _context.Product.ToList();
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
-
-            var list = from m in _context.Product select m;
-            list = list.Where(m => m.CategoryID.Equals(id));
-            return View(await list.ToListAsync());
+            return View();
         }
     }
 }

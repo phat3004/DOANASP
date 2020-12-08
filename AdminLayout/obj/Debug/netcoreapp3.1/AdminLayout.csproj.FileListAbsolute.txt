@@ -1441,3 +1441,9 @@ C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admi
 C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
 C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Edit.cshtml.g.cs
 C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
+C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Create.cshtml.g.cs
+C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Delete.cshtml.g.cs
+C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Details.cshtml.g.cs
+C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Edit.cshtml.g.cs
+C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Index.cshtml.g.cs
+C:\Users\TiBon\Desktop\DoAn\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\Index.cshtml.g.cs
