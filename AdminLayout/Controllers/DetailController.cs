@@ -19,7 +19,7 @@ namespace AdminLayout.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
-            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop5 = _context.Product.ToList().TakeLast(5);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
 

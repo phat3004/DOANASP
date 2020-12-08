@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AdminLayout.Areas.Admin.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdminLayout.Controllers
 {
@@ -16,12 +17,15 @@ namespace AdminLayout.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id)
         {
             ViewBag.listProduct = _context.Product.ToList();
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
-            return View();
+
+            var list = from m in _context.Product select m;
+            list = list.Where(m => m.SupplierID.Equals(id));
+            return View(await list.ToListAsync());
         }
     }
 }
