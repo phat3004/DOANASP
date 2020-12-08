@@ -57,7 +57,7 @@
                     <p>
                         <h4>Short Description:</h4>
                     <p>
-                        @Html.DisplayFor(model => model.Content)
+                        @Html.Raw((string)@Model.Content)
                     </p>
                     <ul>
                         <li>
