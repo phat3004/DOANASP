@@ -22,6 +22,7 @@ namespace AdminLayout.Controllers
         public IActionResult Index()
         {
             ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop5 = _context.Product.ToList().TakeLast(5);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
