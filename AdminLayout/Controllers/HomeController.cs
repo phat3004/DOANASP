@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using AdminLayout.Models;
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdminLayout.Controllers
 {
@@ -36,7 +37,9 @@ namespace AdminLayout.Controllers
                 var custom = from c in _context.Customer
                              where c.Email == Email && c.Password == Pass
                              select new { c.Name };
-                return View();
+                //var user =  _context.Customer
+                //.FirstOrDefaultAsync(m => m.Email == Email &&  m.Password == Pass);
+                return View("Index",custom);
             }
             else
             {
@@ -45,9 +48,23 @@ namespace AdminLayout.Controllers
             //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
              //trả về kết quả
         }
-        public IActionResult Index()
+        public IActionResult Index(string? name, string Email, string Pass)
         {
-            return View();
+            if (!String.IsNullOrEmpty(Email) && !String.IsNullOrEmpty(Pass))
+            {
+                var custom = from c in _context.Customer
+                             where c.Email == Email && c.Password == Pass
+                             select new { c.Name };
+                //var user =  _context.Customer
+                //.FirstOrDefaultAsync(m => m.Email == Email &&  m.Password == Pass);
+                return View("Index", custom);
+            }
+            else
+            {
+                return NotFound();
+            }
+            //ViewBag.USer = name;
+            //return View();
         }
 
         public IActionResult Privacy()

@@ -47,7 +47,14 @@
                 </div>
                 <div class="our-link">
                     <ul>
-                        <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">Login</a></li>
+                        @if (ViewBag.User == null)
+                        {
+                            <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">Login</a></li>
+                        }
+                        else
+                        {
+                             <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">@ViewBag.USer</a></li>
+                        }
                         <li><a href="#">Our location</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>

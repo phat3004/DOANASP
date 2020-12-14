@@ -197,7 +197,6 @@ D:\Nam 3\ASP\New folder\DOAN\AdminLayout\AdminLayout\obj\Debug\netcoreapp3.1\Adm
 D:\Nam 3\ASP\New folder\DOAN\AdminLayout\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Detail\Index.cshtml.g.cs
 D:\Nam 3\ASP\New folder\DOAN\AdminLayout\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
 D:\Nam 3\ASP\New folder\DOAN\AdminLayout\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Login\Index.cshtml.g.cs
-
 C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\AdminLayout.exe
 C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\AdminLayout.deps.json
 C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\AdminLayout.runtimeconfig.json
@@ -407,3 +406,6 @@ C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.
 C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.pdb
 C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.genruntimeconfig.cache
 C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Lenovo\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
