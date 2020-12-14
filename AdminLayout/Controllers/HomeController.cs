@@ -29,26 +29,23 @@ namespace AdminLayout.Controllers
             //var sp = from l in _context.LoaiSP
             //         join c in _context.SanPham on l.Id equals c.MaLoai
             //         select new { l.Name, c.ProName, c.MaLoai, c.Loai, c.Img, c.Id };
-            var custom = from c in _context.Customer
-                         select new { c.Name, c.Email, c.Password };
-
-
+            
             //3. Tìm kiếm chuỗi truy vấn
             if (!String.IsNullOrEmpty(Email) && !String.IsNullOrEmpty(Pass))
             {
-                custom = custom.Where(s => s.Email.Contains(Email));
-                custom = custom.Where(y => y.Password.Contains(Pass));
+                var custom = from c in _context.Customer
+                             where c.Email == Email && c.Password == Pass
+                             select new { c.Name };
                 return View();
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 return NotFound();
             }
             //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
              //trả về kết quả
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
