@@ -30,7 +30,7 @@ namespace AdminLayout
                    options =>
                    {
                        options.LoginPath = "/admin/login/";
-                       options.LogoutPath = "/admin/logout/";
+                       //options.LogoutPath = "/admin/logout/";
                    });
 
         }

@@ -768,8 +768,6 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\runtimes\win\lib
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csprojAssemblyReference.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.AssemblyInfoInputs.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.AssemblyInfo.cs
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.RazorAssemblyInfo.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.RazorAssemblyInfo.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.TagHelpers.input.cache
@@ -829,3 +827,10 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.genr
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Login.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
