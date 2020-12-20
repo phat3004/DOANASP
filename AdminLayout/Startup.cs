@@ -1,8 +1,11 @@
 using AdminLayout.Areas.Admin.Data;
+using AdminLayout.Areas.Admin.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,17 +24,21 @@ namespace AdminLayout
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DPContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("DPContext")));
+            services.AddIdentity<User, IdentityRole>(opt =>
+            {
+                opt.Password.RequiredLength = 7;
+                opt.Password.RequireDigit = false;
+                opt.Password.RequireUppercase = false;
+
+                opt.User.RequireUniqueEmail = true;
+            })
+                    .AddEntityFrameworkStores<DPContext>();
             services.AddControllersWithViews();
-            services.AddDbContext<DPContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DPContext")));
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services
-               .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-               .AddCookie(
-                   options =>
-                   {
-                       options.LoginPath = "/admin/login/";
-                       //options.LogoutPath = "/admin/logout/";
-                   });
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.ConfigureApplicationCookie(o => o.LoginPath = "/Account/Login");
 
         }
 
@@ -53,6 +60,7 @@ namespace AdminLayout
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

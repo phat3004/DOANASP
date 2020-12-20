@@ -23,7 +23,7 @@ namespace AdminLayout.Areas.Admin.Controllers
         // GET: Admin/Supplier
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Supplier.ToListAsync());
+            return View(await _context.Suppliers.ToListAsync());
         }
 
         // GET: Admin/Supplier/Details/5
@@ -34,7 +34,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var supplierModel = await _context.Supplier
+            var supplierModel = await _context.Suppliers
                 .FirstOrDefaultAsync(m => m.SupplierID == id);
             if (supplierModel == null)
             {
@@ -74,7 +74,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var supplierModel = await _context.Supplier.FindAsync(id);
+            var supplierModel = await _context.Suppliers.FindAsync(id);
             if (supplierModel == null)
             {
                 return NotFound();
@@ -125,7 +125,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var supplierModel = await _context.Supplier
+            var supplierModel = await _context.Suppliers
                 .FirstOrDefaultAsync(m => m.SupplierID == id);
             if (supplierModel == null)
             {
@@ -140,15 +140,15 @@ namespace AdminLayout.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var supplierModel = await _context.Supplier.FindAsync(id);
-            _context.Supplier.Remove(supplierModel);
+            var supplierModel = await _context.Suppliers.FindAsync(id);
+            _context.Suppliers.Remove(supplierModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SupplierModelExists(int id)
         {
-            return _context.Supplier.Any(e => e.SupplierID == id);
+            return _context.Suppliers.Any(e => e.SupplierID == id);
         }
     }
 }

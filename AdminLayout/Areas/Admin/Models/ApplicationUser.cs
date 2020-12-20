@@ -1,6 +1,8 @@
-﻿namespace AdminLayout.Areas.Admin.Controllers
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace AdminLayout.Areas.Admin.Models
 {
-    internal class ApplicationUser
+    internal class ApplicationUser : IdentityUser
     {
     }
 }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace AdminLayout.Areas.Admin.Models
 {
-    public class AdminModel
+    public class UserLoginModel
     {
-        [Key]
-        public int AdminID { get; set; }
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        public string Name { get; set; }
-        public int PhoneNumber { get; set; }
-        public string Img { get; set; }
-        public bool Status { get; set; }
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
 }

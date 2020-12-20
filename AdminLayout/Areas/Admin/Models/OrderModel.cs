@@ -15,6 +15,6 @@ namespace AdminLayout.Areas.Admin.Models
         [ForeignKey("CustomerID")]
         public Decimal Total { get; set; }
         public DateTime Date { get; set; }
-        public virtual CustomerModel Customer { get; set; }
+        public virtual User Users { get; set; }
     }
 }
