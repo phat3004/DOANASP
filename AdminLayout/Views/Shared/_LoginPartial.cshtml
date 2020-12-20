@@ -18,9 +18,9 @@
                    title="Welcome">Welcome @User.Identity.Name!</a>
             </li>
             <li class="nav-item">
-               
-                    <a asp-controller="Account" asp-action="Logout" type="submit" class="nav-link btn btn-link text-info">Logout</a>
-                
+
+                <a asp-controller="Account" asp-action="Logout" type="submit" class="nav-link btn btn-link text-info">Logout</a>
+
             </li>
         }
         else
@@ -34,6 +34,8 @@
                 <a class="nav-link text-dark" asp-controller="Account"
                    asp-action="Register">Register</a>
             </li>
+
+            
         }
     </ul>
 

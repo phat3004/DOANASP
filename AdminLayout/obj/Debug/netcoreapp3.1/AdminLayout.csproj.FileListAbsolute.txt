@@ -834,3 +834,13 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcA
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\EmailService.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\MailKit.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\MimeKit.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\NETCore.MailKit.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\EmailService.pdb
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs

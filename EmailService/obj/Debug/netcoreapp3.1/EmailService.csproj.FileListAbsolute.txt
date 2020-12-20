@@ -1,0 +1,9 @@
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\obj\Debug\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+D:\ASP.NET CORE MVC\ASPDOAN\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb

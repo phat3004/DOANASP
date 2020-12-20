@@ -1,15 +1,19 @@
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
 using AutoMapper;
+using EmailService;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+
 namespace AdminLayout
 {
     public class Startup
@@ -33,13 +37,29 @@ namespace AdminLayout
 
                 opt.User.RequireUniqueEmail = true;
             })
-                    .AddEntityFrameworkStores<DPContext>();
+                    .AddEntityFrameworkStores<DPContext>()
+                    .AddDefaultTokenProviders();
+            services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromHours(2));
+
             services.AddControllersWithViews();
 
             services.AddAutoMapper(typeof(Startup));
 
             services.ConfigureApplicationCookie(o => o.LoginPath = "/Account/Login");
 
+            var emailConfig = Configuration
+                .GetSection("EmailConfiguration")
+                .Get<EmailConfiguration>();
+                        services.AddSingleton(emailConfig);
+                        services.AddScoped<IEmailSender, EmailSender>();
+
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
