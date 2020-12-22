@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oYHaGMs5W3btXVU1XS+PUew7S+drdfCBESIMwGEH8pgY1fIoN0FGKPb9b3OcuaJTfmoAIbQWyE+ujuMZLjLhkw==",
+  "dgSpecHash": "BKcQ3n4hiK2w+qprzBJ8U7sBDaGa/bv1AJue3erODLN6IGSQSjir3l/F8EzZNsl6MJHlMfRTOs9wyQ1K/JHUTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj",
+  "projectFilePath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TiBon\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj": {}
+    "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj": {
+    "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj",
+        "projectUniqueName": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
         "projectName": "AdminLayout",
-        "projectPath": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\AdminLayout.csproj",
+        "projectPath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
         "packagesPath": "C:\\Users\\TiBon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TiBon\\Desktop\\DoAn\\AdminLayout\\obj\\",
+        "outputPath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TiBon\\AppData\\Roaming\\NuGet\\NuGet.Config",
