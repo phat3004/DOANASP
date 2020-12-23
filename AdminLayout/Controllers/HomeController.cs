@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AdminLayout.Models;
 using AdminLayout.Areas.Admin.Data;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using AdminLayout.Areas.Admin.Models;
 
 namespace AdminLayout.Controllers
 {
@@ -21,6 +24,30 @@ namespace AdminLayout.Controllers
 
         public IActionResult Index()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop5 = _context.Product.ToList().TakeLast(5);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+                else
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop5 = _context.Product.ToList().TakeLast(5);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
             ViewBag.listProductTop5 = _context.Product.ToList().TakeLast(5);
             ViewBag.listCategory = _context.Category.ToList();
