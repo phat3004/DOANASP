@@ -357,3 +357,18 @@
     </div>
 </div>
 <!-- End Instagram Feed  -->
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn-test').on('click', function () {
+                $.ajax({
+                    url: "/home/test",
+                    type: 'GET',
+                    success: function (result) {
+                        alert(result);
+                    }
+                })
+            })
+        });
+    </script>
+}

@@ -35,6 +35,7 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                
                 <div class="custom-select-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
                         <option>¥ JPY</option>
@@ -45,16 +46,18 @@
                 <div class="right-phone-box">
                     <p>Call US :- <a href="#"> +11 900 800 100</a></p>
                 </div>
-                <div class="our-link">
+                <div class="our-link">      
                     <ul>
-                        @if (ViewBag.User == null)
+                        @*@if (ViewBag.User == null)
                         {
                             <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">Login</a></li>
                         }
                         else
                         {
                              <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">@ViewBag.USer</a></li>
-                        }
+                        }*@
+                        <li><partial name="_LoginPartial" /></li>
+                        @*<li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">Login</a></li>*@
                         <li><a href="#">Our location</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
@@ -74,14 +77,14 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="~/user/images/logo.png" class="logo" alt=""></a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/user/images/logo.png" class="logo" alt=""></a>
             </div>
             <!-- End Header Navigation -->
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="nav-item">
-                        <a class="nav-link" >Home</a>
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link">About Us</a>

@@ -1,4 +1,7 @@
 ﻿using AdminLayout.Areas.Admin.Models;
+using AdminLayout.Areas.Admin.Models.Configuration;
+using AdminLayout.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,19 +10,27 @@ using System.Threading.Tasks;
 
 namespace AdminLayout.Areas.Admin.Data
 {
-    public class DPContext : DbContext
+    public class DPContext : IdentityDbContext<User>
     {
         public DPContext(DbContextOptions<DPContext> options) : base(options)
         {
 
         }
 
-        public DbSet<CategoryModel> Category { get; set; }
-        public DbSet<ProductModel> Product { get; set; }
-        public DbSet<SupplierModel> Supplier { get; set; }
-        public DbSet<CustomerModel> Customer { get; set; }
-        public DbSet<AdminModel> Admin { get; set; }
-        public DbSet<OrderModel> Order { get; set; }
-        public DbSet<OrderDetailModel> OrderDetail { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+
+        }
+
+        public DbSet<CategoryModel> Categorys { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<ProductModel> Products { get; set; }
+        public DbSet<SupplierModel> Suppliers { get; set; }
+       
+        public DbSet<OrderModel> Orders { get; set; }
+        public DbSet<OrderDetailModel> OrderDetails { get; set; }
     }
 }
