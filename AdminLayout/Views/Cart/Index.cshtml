@@ -28,12 +28,12 @@
                                     grandtotal += total;
                                     <tr>
                                         <td class="thumbnail-img">
-                                            <a href="#">
+                                            <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
                                                 <img class="img-fluid" src="~/pro/@item.Product.Img" alt="" />
                                             </a>
                                         </td>
                                         <td class="name-pr">
-                                            <a href="#">
+                                            <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
                                                 @item.Product.Name
                                             </a>
                                         </td>
@@ -52,7 +52,7 @@
                             else
                                     {
                                 <tr>
-                                    <td><h1>Giỏ hàng trống</h1></td>                                  
+                                    <h2 style="text-align: center;" class="alert alert-danger">Giỏ hàng trống</h2>      
                                 </tr>                                     
                                     }
                                 }                            

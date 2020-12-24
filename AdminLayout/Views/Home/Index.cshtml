@@ -51,12 +51,12 @@
             @foreach (var item in ViewBag.listSupplier)
             {
                 <a href="@Url.Action("Index","Category", new { id = item.SupplierID })">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box" style="height: 23em">
-                        <img class="img-fluid" src="~/supplier/@item.Img" alt="supplỉe-img" />
-                        <a class="btn hvr-hover" href="#">@item.Name</a>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="shop-cat-box" style="height: 23em">
+                            <img class="img-fluid" src="~/supplier/@item.Img" alt="supplỉe-img" />
+                            <a class="btn hvr-hover" href="#">@item.Name</a>
+                        </div>
                     </div>
-                </div>
                 </a>
             }
         </div>
@@ -87,97 +87,26 @@
         </div>
 
         <div class="row special-list">
-            <div class="col-lg-3 col-md-6 special-grid best-seller">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="sale">Sale</p>
+            @foreach (var item in ViewBag.listProductTop4)
+            {
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="~/pro/@item.Img" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <a style="color: white; cursor:pointer" name="addCart" data-id="@item.ProductID" class="cart" data-fancybox-close="">Add to cart</a>
+                            </div>
                         </div>
-                        <img src="~/user/images/img-pro-01.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
+                        <div class="why-text">
+                            <h4>@item.Name</h4>
+                            <h5> @item.Price</h5>
                         </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $7.79</h5>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 special-grid top-featured">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="new">New</p>
-                        </div>
-                        <img src="~/user/images/img-pro-02.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $9.79</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 special-grid top-featured">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="sale">Sale</p>
-                        </div>
-                        <img src="~/user/images/img-pro-03.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $10.79</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 special-grid best-seller">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="sale">Sale</p>
-                        </div>
-                        <img src="~/user/images/img-pro-04.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $15.79</h5>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
@@ -338,3 +267,19 @@
     </div>
 </div>
 <!-- End Instagram Feed  -->
+@section Scripts{
+    <script>
+        $('a[name=addCart]').click(function () {
+            var id = ($(this).attr('data-id'));
+            $.ajax({
+                url: "@Url.Action("addCart","Cart")",
+                data: { 'id': id },
+                success: function () {
+                    $("#countCart").load(window.location.href + " #countCart");
+                    $("#cartList").load(window.location.href + " #cartList");
+                    $.notify("Đã thêm vào giỏ hàng", "success",);
+                }
+            })
+        });
+    </script>
+}

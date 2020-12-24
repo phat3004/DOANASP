@@ -34,15 +34,6 @@ namespace AdminLayout.Controllers
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
                 }
-                else
-                {
-                    ViewBag.carts = dataCart;
-                    ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop5 = _context.Product.ToList().TakeLast(5);
-                    ViewBag.listCategory = _context.Category.ToList();
-                    ViewBag.listSupplier = _context.Supplier.ToList();
-                    return View();
-                }
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();

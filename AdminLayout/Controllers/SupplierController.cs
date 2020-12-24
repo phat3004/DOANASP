@@ -40,16 +40,6 @@ namespace AdminLayout.Controllers
                     list2 = list2.Where(m => m.SupplierID.Equals(id));
                     return View(await list2.ToListAsync());
                 }
-                else
-                {
-                    ViewBag.carts = dataCart;
-                    ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listCategory = _context.Category.ToList();
-                    ViewBag.listSupplier = _context.Supplier.ToList();
-                    var list1 = from m in _context.Product select m;
-                    list1 = list1.Where(m => m.SupplierID.Equals(id));
-                    return View(await list1.ToListAsync());
-                }
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();

@@ -307,10 +307,12 @@
             $.ajax({
                 url: "@Url.Action("addCart","Cart")",
                 data: { 'id': id },
+                success: function () {
+                    $("#countCart").load(window.location.href + " #countCart");
+                    $("#cartList").load(window.location.href + " #cartList");
+                    $.notify("Đã thêm vào giỏ hàng", "success",);
+                }
             })
-            .done(function () {
-                $.notify("Đã thêm vào giỏ hàng", "success",);
-            });
         });
     </script>
 }

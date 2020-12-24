@@ -156,13 +156,13 @@
                 <ul>
                     <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     <li class="side-menu">
-                        <a href="#">
+                        <a id="countCart" href="#">
                             <i class="fa fa-shopping-bag"></i>
                             @{ 
                                 int count = 0;
                                 if (ViewBag.carts == null)
                                 {
-                                    <span id="countCart" class="badge">@count</span>
+                                    <span class="badge">@count</span>
                                 }
                                 else
                                 {
@@ -170,7 +170,7 @@
                                     {
                                         count++;
                                     }
-                                    <span id="countCart" class="badge">@count</span>
+                                    <span class="badge">@count</span>
                                 }
                               }
                         </a>
@@ -183,20 +183,20 @@
         <div class="side">
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
             <li class="cart-box">
-                <ul class="cart-list">
+                <ul id="cartList" class="cart-list">
                     @{ decimal grandtotal = 0;}
-                    @{ int stt = 0;
+                    @{
                         if (ViewBag.carts != null)
                         {
                             foreach (var item in ViewBag.carts)
                             {
                                 string txt_class = "quantity_" + item.Product.ProductID;
-                                stt++;
                                 decimal total = item.Product.Price * item.Quantity;
                                 grandtotal += total;
                                 <li>
-                                    <a href="#" class="photo"><img src="~/pro/@item.Product.Img" class="cart-thumb" alt="" /></a>
-                                    <h6><a href="#"> @item.Product.Name </a></h6>
+
+                                    <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID" class="photo"><img src="~/pro/@item.Product.Img" class="cart-thumb" alt="" /></a>
+                                    <h6><a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID"> @item.Product.Name </a></h6>
                                     <p>@item.Quantity x <span class="price">@item.Product.Price</span></p>
                                 </li>
                             }
@@ -204,7 +204,7 @@
                         else
                         {
                             <li>
-                                <h6>Giỏ hàng trống</h6>
+                                <h6 class="alert alert-danger">Giỏ hàng trống</h6>
                             </li>
                         }
                     }

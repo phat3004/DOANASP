@@ -35,18 +35,18 @@
                         <div class="carousel-item active"> <img class="d-block w-100" src="~/pro/@Html.DisplayFor(model => model.Img)" alt="First slide"> </div>
                     </div>
                     @*<a class="carousel-control-prev" href="#carousel-example-1" role="button" data-slide="prev">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-example-1" role="button" data-slide="next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <span class="sr-only">Next</span>
-                    </a>*@
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-example-1" role="button" data-slide="next">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            <span class="sr-only">Next</span>
+                        </a>*@
                     @*<ol class="carousel-indicators">
-                        <li data-target="#carousel-example-1" data-slide-to="0" class="active">
-                            <img class="d-block w-100 img-fluid" src="~/admin/images/smp-img-01.jpg" alt="" />
-                        </li>
-                    </ol>*@
+                            <li data-target="#carousel-example-1" data-slide-to="0" class="active">
+                                <img class="d-block w-100 img-fluid" src="~/admin/images/smp-img-01.jpg" alt="" />
+                            </li>
+                        </ol>*@
                 </div>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-6">
@@ -112,30 +112,30 @@
                 <div class="featured-products-box owl-carousel owl-theme">
                     @foreach (var item in ViewBag.listProductTop5)
                     {
-                            <div class="item">
-                                <div class="products-single fix">
-                                    <a href="@Url.Action("Index","Detail", new { id = item.ProductID })">
-                                        <div class="box-img-hover">
-                                            <img src="~/pro/@item.Img" class="img-fluid" alt="Image">
-                                            <div class="mask-icon">
-                                                <ul>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                                </ul>
-                                                <a class="cart" href="#">Add to Cart</a>
-                                            </div>
+                        <div class="item">
+                            <div class="products-single fix">
+                                <a href="@Url.Action("Index","Detail", new { id = item.ProductID })">
+                                    <div class="box-img-hover">
+                                        <img src="~/pro/@item.Img" class="img-fluid" alt="Image">
+                                        <div class="mask-icon">
+                                            <ul>
+                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                            </ul>
+                                            <a style="color: white" name="addCart" data-id="@item.ProductID" class="cart">Add to Cart</a>
                                         </div>
-                                        <div class="why-text">
-                                            <h4>@Html.ActionLink((string)@item.Name, "Index", "Detail", new { id = @item.ProductID })</h4>
-                                            @*<h4>@item.Name</h4>*@
-                                            <h5>@item.Price</h5>
-                                        </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                    <div class="why-text">
+                                        <h4>@Html.ActionLink((string)@item.Name, "Index", "Detail", new { id = @item.ProductID })</h4>
+                                        @*<h4>@item.Name</h4>*@
+                                        <h5>@item.Price</h5>
+                                    </div>
+                                </a>
                             </div>
-                            }
-                    </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -227,17 +227,20 @@
     </div>
 </div>
 <!-- End Instagram Feed  -->
-@section Scripts{ 
+@section Scripts{
     <script>
         $('a[name=addCart]').click(function () {
             var id = ($(this).attr('data-id'));
             $.ajax({
                 url: "@Url.Action("addCart","Cart")",
                 data: { 'id': id },
+                success: function () {
+                    //$("#countCart").html(count);
+                    $("#countCart").load(window.location.href + " #countCart");
+                    $("#cartList").load(window.location.href + " #cartList");
+                    $.notify("Đã thêm vào giỏ hàng", "success",);
+                }
             })
-            .done(function () {
-                $.notify("Đã thêm vào giỏ hàng", "success",);
-            });
         });
     </script>
 }
