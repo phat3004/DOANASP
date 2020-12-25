@@ -546,8 +546,6 @@ C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\runtimes\win\
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csprojAssemblyReference.cache
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.AssemblyInfoInputs.cache
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.AssemblyInfo.cs
-C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
-C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.RazorAssemblyInfo.cache
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.RazorAssemblyInfo.cs
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.TagHelpers.input.cache
@@ -1449,3 +1447,7 @@ C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\A
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_TopbarPartial.cshtml.g.cs
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\Index.cshtml.g.cs
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
+C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache

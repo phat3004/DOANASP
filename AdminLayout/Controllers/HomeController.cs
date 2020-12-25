@@ -10,6 +10,9 @@ using AdminLayout.Areas.Admin.Data;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using AdminLayout.Areas.Admin.Models;
+using System.Net;
+using static AdminLayout.Areas.Admin.Models.WeatherViewModel;
+using Nancy.Json;
 
 namespace AdminLayout.Controllers
 {
