@@ -153,7 +153,7 @@
                         <div class="col-12 col-sm-8 text-center text-sm-left">
                             <div class="toolbar-sorter-right">
                                 <span>Sort by </span>
-                                <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+                                <select name="sort" data-id="@Context.Request.RouteValues["id"]" id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
                                     <option data-display="Select">Nothing</option>
                                     <option value="1">Popularity</option>
                                     <option value="2">High Price → High Price</option>
@@ -184,13 +184,8 @@
                                                     <div class="type-lb">
                                                         <p class="sale">Sale</p>
                                                     </div>
-                                                    <img src="~/pro/@Html.DisplayFor(modelItem => item.Img)" class="img-fluid" alt="Image">
+                                                    <span id="productIMG"><img src="~/pro/@Html.DisplayFor(modelItem => item.Img)" class="img-fluid" alt="Image"></span>
                                                     <div class="mask-icon">
-                                                        @*<ul>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                                            </ul>*@
                                                         <a style="color: white; cursor:pointer" name="addCart" data-id="@item.ProductID" class="cart" data-fancybox-close="">Add to cart</a>
                                                     </div>
                                                 </div>
@@ -311,6 +306,28 @@
                     $.notify("Đã thêm vào giỏ hàng", "success",);
                 }
             })
+        });
+
+        $('select[name="sort"]').change( function () {
+            var id = ($(this).attr('data-id'));
+            var value = $(this).val();
+            if (value == 3) {
+                $.ajax({
+                    method: "GET",
+                    url: "/API/ProductAPI/GetFromLowPrice_Supplier",
+                    data: { 'id': id },
+                    success: function (files) {
+                        var data = JSON.parse(files);
+                        var result = '';
+                        //for (var i = 0; i < data.length; i++) {
+                            result += '<img src="/pro/' + data[1].Img + '" class="img-fluid" alt="Image">'
+                            $("#productIMG").html(result);
+                        //}//for
+                    } //success
+                   })//ajax
+            }//if
+            else
+                alert(value);
         });
     </script>
 }
