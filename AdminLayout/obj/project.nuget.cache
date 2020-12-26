@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j1eGolU5E3QktDYl4XtuJwNU0FC3g8eysCmY/JpChBFGMjuSRH3aR5XOiphiOat0Tn9A/KV2zs1D+piluHskHg==",
+  "dgSpecHash": "pFdFhR8U7kgc4WJp9Ykr7QRCqce/CDKqvmdkQxkcf3zlCINqFNe2o0cexaWhU0R0g+fIDtTX40OH8mWL8Gt41g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\AdminLayout\\AdminLayout.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",

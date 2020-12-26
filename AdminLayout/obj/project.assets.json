@@ -9545,11 +9545,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\AdminLayout\\AdminLayout.csproj",
       "projectName": "AdminLayout",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\AdminLayout\\AdminLayout.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\AdminLayout\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\AdminLayout\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9565,8 +9565,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Lenovo\\Desktop\\DOANASP\\EmailService\\EmailService.csproj": {
-              "projectPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\EmailService\\EmailService.csproj"
+            "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\EmailService\\EmailService.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\EmailService\\EmailService.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e8ZTciTi+RHKDyHbBWkmBP3/7zBwPh9yL3LtB+XfGbtmupX48dsHYH0RtkN9G/js4Gs/Qhcp5wXWPiLM9aJY7Q==",
+  "dgSpecHash": "qAcfBfiQj/xmJN0hVM8vsqu+5CJ5vGxEng8tHQT3moF78SDk6l2G9IOoKXmimU69hQc+mW5fx8kjpoY8GtH51g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\DOANASP - Copy\\DOANASP\\EmailService\\EmailService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\mailkit\\2.10.0\\mailkit.2.10.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.1\\microsoft.aspnetcore.http.features.5.0.1.nupkg.sha512",

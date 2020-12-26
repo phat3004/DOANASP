@@ -23,7 +23,7 @@ namespace AdminLayout.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public  async Task<IActionResult> Index(string searchString, string Category = null)
+        public  async Task<IActionResult> Index(string searchString, string Category = null, string Supplier = null)
         {
             //var dPContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
             //return View(await dPContext.ToListAsync());
@@ -31,23 +31,29 @@ namespace AdminLayout.Areas.Admin.Controllers
             var category = from c in _context.Categorys select c;
             ViewBag.Category = new SelectList(category, "CategoryID", "Name"); // danh sách Loại SP
 
+            var supplier = from a in _context.Suppliers select a;
+            ViewBag.Supplier = new SelectList(supplier, "SupplierID", "Name"); // danh sách nhà sản xuất
+
             //2. Tạo câu truy vấn kết 2 bảng bằng mệnh đề join
             var sp = from l in _context.Categorys
                      join c in _context.Products on l.CategoryID equals c.CategoryID
-                     select new { l.Name, c.Price, c.CategoryID, c.Category, c.Img, c.ProductID };
+                     join a in _context.Suppliers on c.SupplierID equals a.SupplierID
+                     select new { c.Name, c.Price, c.CategoryID, c.Category, c.Img, c.ProductID,c.Supplier};
 
             //3. Tìm kiếm chuỗi truy vấn
             if (!String.IsNullOrEmpty(searchString))
             {
                 sp = sp.Where(s => s.Name.Contains(searchString));
             }
-
             //4. Tìm kiếm theo CategoryID
             if (!String.IsNullOrEmpty(Category))
             {
-                sp = sp.Where(x => x.Name.Contains(Category));
+                sp = sp.Where(x => x.Category.Name.Contains(Category));
             }
-
+            if (!String.IsNullOrEmpty(Supplier))
+            {
+                sp = sp.Where(x => x.Supplier.Name.Contains(Supplier));
+            }
             //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
             List<ProductModel> listproduct = new List<ProductModel>();
             foreach (var item in sp)
@@ -55,8 +61,8 @@ namespace AdminLayout.Areas.Admin.Controllers
                 ProductModel temp = new ProductModel();
                 temp.ProductID = item.ProductID;
                 temp.Name = item.Name;
-                temp.CategoryID = item.CategoryID;
-                temp.Category = item.Category;
+                temp.Supplier = item.Supplier;
+                temp.Category= item.Category;
                 temp.Img = item.Img;
                 listproduct.Add(temp);
             }
@@ -99,17 +105,17 @@ namespace AdminLayout.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,Name,Price,Content,Status,Quantity,SupplierID,CategoryID")] ProductModel productModel, IFormFile ful)
+        public async Task<IActionResult> Create([Bind("ProductID,Name,Price,Content,Status,Quantity,Img,SupplierID,CategoryID")] ProductModel productModel, IFormFile ful)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(productModel);
                 await _context.SaveChangesAsync();
-                //var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/pro", productModel.ProductID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
-                //using (var stream = new FileStream(path, FileMode.Create))
-                //{
-                //    await ful.CopyToAsync(stream);
-                //}
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/pro", productModel.ProductID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await ful.CopyToAsync(stream);
+                }
                 productModel.Img = productModel.ProductID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1];
                 _context.Update(productModel);
                 await _context.SaveChangesAsync();
