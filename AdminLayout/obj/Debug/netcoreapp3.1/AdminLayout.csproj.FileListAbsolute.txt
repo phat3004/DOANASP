@@ -844,3 +844,5 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\System.IO.Pipeli
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\EmailService.pdb
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPasswordConfirmation.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs

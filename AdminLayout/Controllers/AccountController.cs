@@ -80,8 +80,6 @@ namespace AdminLayout.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(Areas.Admin.Models.UserLoginModel userModel, string returnUrl = null)
         {
-            
-
             if (!ModelState.IsValid)
             {
                 return View(userModel);
@@ -90,8 +88,8 @@ namespace AdminLayout.Controllers
             var result = await _signInManager.PasswordSignInAsync(userModel.Email, userModel.Password, userModel.RememberMe, false);          
             if (result.Succeeded)
             {
-                //var user = await _context.Users.FirstOrDefaultAsync(m => m.Email == userModel.Email);
-                var user = await _userManager.FindByEmailAsync(userModel.Email);
+                var user = await _context.Users.FirstOrDefaultAsync(m => m.Email == userModel.Email);
+                //var user = await _userManager.FindByEmailAsync(userModel.Email);
                 return await RedirectToLocal(returnUrl, user);
             }
             else
@@ -126,7 +124,6 @@ namespace AdminLayout.Controllers
             }
 
         }
-
         [HttpGet]
         public IActionResult ForgotPassword()
         {
@@ -145,9 +142,9 @@ namespace AdminLayout.Controllers
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var callback = Url.Action(nameof(ResetPassword), "AccountController", new { token, email = user.Email }, Request.Scheme);
+            var callback = Url.Action(nameof(ResetPassword), "Account", new { token, email = user.Email }, Request.Scheme);
 
-            var message = new Message(new string[] { "hoangvinhquang76@yahoo.com" }, "Reset password token", callback, null);
+            var message = new Message(new string[] { "0306181161@caothang.edu.vn" }, "Reset password token", callback, null);
             await _emailSender.SendEmailAsync(message);
 
             return RedirectToAction(nameof(ForgotPasswordConfirmation));
