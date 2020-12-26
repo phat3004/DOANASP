@@ -1451,3 +1451,4 @@ C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.Ext
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Nancy.dll
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Cart\CheckoutCart.cshtml.g.cs
