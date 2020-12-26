@@ -314,22 +314,5 @@
                 }
             })
         });
-
-
-        $(window).on("load", function () {
-            var cityname = "Ho+Chi+Minh";
-            $.ajax({
-                //type: GET,
-                url: "/API/WeatherAPI/GetWeather",
-                data: { "city": cityname },
-                success: function (files) {
-                    var data = JSON.parse(files);
-                    var doC = data.temp - 273.15;
-                    console.log(doC);
-                    $("#lblTemp").html(doC);
-                    $("#lblName").html(data.city);
-                }
-            })
-        });
     </script>
 }
