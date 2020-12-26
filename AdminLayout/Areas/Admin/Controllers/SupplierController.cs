@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace AdminLayout.Areas.Admin.Controllers
 {
@@ -55,11 +57,19 @@ namespace AdminLayout.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel)
+        public async Task<IActionResult> Create([Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel, IFormFile ful)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(supplierModel);
+                await _context.SaveChangesAsync();
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/supplier", supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await ful.CopyToAsync(stream);
+                }
+                supplierModel.Img = supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1];
+                _context.Update(supplierModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -87,7 +97,7 @@ namespace AdminLayout.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel)
+        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel, IFormFile ful)
         {
             if (id != supplierModel.SupplierID)
             {
@@ -99,6 +109,18 @@ namespace AdminLayout.Areas.Admin.Controllers
                 try
                 {
                     _context.Update(supplierModel);
+                    if (ful != null)
+                    {
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/supplier", supplierModel.Img);
+                        System.IO.File.Delete(path);
+                        path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/supplier", supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
+                        using (var stream = new FileStream(path, FileMode.Create))
+                        {
+                            await ful.CopyToAsync(stream);
+                        }
+                        supplierModel.Img = supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1];
+                        _context.Update(supplierModel);
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
