@@ -6,20 +6,46 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AdminLayout.Models;
+using AdminLayout.Areas.Admin.Data;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using AdminLayout.Areas.Admin.Models;
+using System.Net;
+using static AdminLayout.Areas.Admin.Models.WeatherViewModel;
+using Nancy.Json;
 
 namespace AdminLayout.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly DPContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(DPContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
