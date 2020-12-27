@@ -3,6 +3,7 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AdminLayout.Models
@@ -13,6 +14,8 @@ namespace AdminLayout.Models
         {
             CreateMap<UserRegistrationModel, User>()
                 .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email));
+
+            
         }
     }
 }

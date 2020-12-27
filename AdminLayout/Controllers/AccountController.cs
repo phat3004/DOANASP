@@ -229,10 +229,11 @@ namespace AdminLayout.Controllers
             }
             else
             {
-                if (Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
-                else
-                    return RedirectToAction(nameof(HomeController.Index), "Home");
+                return RedirectToAction(nameof(AccountController.AccessDenied), "Account");
+                //if (Url.IsLocalUrl(returnUrl))
+                //    return Redirect(returnUrl);
+                //else
+                //    return RedirectToAction(nameof(HomeController.Index), "Home");
             }
 
         }
@@ -303,6 +304,11 @@ namespace AdminLayout.Controllers
 
         [HttpGet]
         public IActionResult Error()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> AccessDenied()
         {
             return View();
         }
