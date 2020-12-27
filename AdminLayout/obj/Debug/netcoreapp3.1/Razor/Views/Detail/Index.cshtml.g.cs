@@ -26,8 +26,15 @@ using AdminLayout.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\Views\_ViewImports.cshtml"
+using AdminLayout.Areas.Admin.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"87ac2537b4aadbfe68eb3d0917fd6f808fcf46b1", @"/Views/Detail/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90284b514df458cbaf73c5e2bb67236cd2a44612", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0ec447698a39f9442c26758f2d9b8546b4730b30", @"/Views/_ViewImports.cshtml")]
     public class Views_Detail_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("d-block w-100"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -119,7 +126,7 @@ using AdminLayout.Models;
                 <div id=""carousel-example-1"" class=""single-product-slider carousel slide"" data-ride=""carousel"">
                     <div class=""carousel-inner"" role=""listbox"">
                         <div class=""carousel-item active""> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b115023", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b115208", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -135,7 +142,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" </div>\r\n                        <div class=\"carousel-item\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b116282", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b116467", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -151,7 +158,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" </div>\r\n                        <div class=\"carousel-item\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b117541", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b117726", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -179,7 +186,7 @@ using AdminLayout.Models;
                     <ol class=""carousel-indicators"">
                         <li data-target=""#carousel-example-1"" data-slide-to=""0"" class=""active"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b119545", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b119730", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -195,7 +202,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li data-target=\"#carousel-example-1\" data-slide-to=\"1\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b120891", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b121076", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -211,7 +218,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li data-target=\"#carousel-example-1\" data-slide-to=\"2\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b122238", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b122423", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -249,7 +256,7 @@ using AdminLayout.Models;
                                 <label class=""size-label"">Size</label>
                                 <select id=""basic"" class=""selectpicker show-tick form-control"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b124813", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b124998", async() => {
                 WriteLiteral("Size");
             }
             );
@@ -265,7 +272,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b126009", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b126194", async() => {
                 WriteLiteral("S");
             }
             );
@@ -281,7 +288,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b127202", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b127387", async() => {
                 WriteLiteral("M");
             }
             );
@@ -297,7 +304,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b128395", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b128580", async() => {
                 WriteLiteral("L");
             }
             );
@@ -313,7 +320,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b129588", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b129773", async() => {
                 WriteLiteral("XL");
             }
             );
@@ -329,7 +336,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b130782", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b130967", async() => {
                 WriteLiteral("XXL");
             }
             );
@@ -345,7 +352,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b131977", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b132162", async() => {
                 WriteLiteral("3XL");
             }
             );
@@ -361,7 +368,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b133172", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b133357", async() => {
                 WriteLiteral("4XL");
             }
             );
@@ -425,7 +432,7 @@ using AdminLayout.Models;
                         <div class=""products-single fix"">
                             <div class=""box-img-hover"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b137034", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b137219", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -457,7 +464,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b139541", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b139726", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -489,7 +496,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b142048", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b142233", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -521,7 +528,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b144555", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b144740", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -553,7 +560,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b147062", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b147247", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -585,7 +592,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b149569", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b149754", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -617,7 +624,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b152076", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b152261", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -649,7 +656,7 @@ using AdminLayout.Models;
                         </div>
               ");
             WriteLiteral("      </div>\r\n                    <div class=\"item\">\r\n                        <div class=\"products-single fix\">\r\n                            <div class=\"box-img-hover\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b154583", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b154768", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -694,7 +701,7 @@ using AdminLayout.Models;
         <div class=""item"">
             <div class=""ins-inner-box"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b157201", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b157386", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -709,7 +716,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b158593", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b158778", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -724,7 +731,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b159985", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b160170", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -739,7 +746,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b161377", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b161562", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -754,7 +761,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b162769", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b162954", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -769,7 +776,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b164161", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b164346", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -784,7 +791,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b165553", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b165738", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -799,7 +806,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b166945", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b167130", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -814,7 +821,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b168337", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b168522", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -829,7 +836,7 @@ using AdminLayout.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"hov-in\">\r\n                    <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <div class=\"ins-inner-box\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b169729", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87ac2537b4aadbfe68eb3d0917fd6f808fcf46b169914", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

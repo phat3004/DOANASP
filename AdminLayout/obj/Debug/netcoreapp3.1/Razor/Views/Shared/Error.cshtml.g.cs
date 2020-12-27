@@ -26,8 +26,15 @@ using AdminLayout.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\Views\_ViewImports.cshtml"
+using AdminLayout.Areas.Admin.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90284b514df458cbaf73c5e2bb67236cd2a44612", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0ec447698a39f9442c26758f2d9b8546b4730b30", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

@@ -36,6 +36,8 @@ namespace AdminLayout
                 opt.Password.RequireUppercase = false;
 
                 opt.User.RequireUniqueEmail = true;
+
+                opt.SignIn.RequireConfirmedEmail = true;
             })
                     .AddEntityFrameworkStores<DPContext>()
                     .AddDefaultTokenProviders();
@@ -59,7 +61,16 @@ namespace AdminLayout
                 o.MemoryBufferThreshold = int.MaxValue;
             });
 
-            
+            services.AddAuthentication()
+                .AddGoogle("google", opt =>
+                {
+                    var googleAuth = Configuration.GetSection("Authentication:Google");
+
+                    opt.ClientId = googleAuth["ClientId"];
+                    opt.ClientSecret = googleAuth["ClientSecret"];
+                    opt.SignInScheme = IdentityConstants.ExternalScheme;
+             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +92,7 @@ namespace AdminLayout
             app.UseRouting();
 
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

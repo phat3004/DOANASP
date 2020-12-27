@@ -27,6 +27,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.0",
           "EmailService": "1.0.0",
           "MailKit": "2.10.0",
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.10",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.0",
@@ -357,6 +358,17 @@
         },
         "compile": {
           "lib/netstandard2.0/MailKit.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/3.1.10": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.0": {
@@ -4190,6 +4202,13 @@
       "sha512": "sha512-+MuVBWstHANt4iescbL0zzOZX+OllALJQf+uDdIPsCx+mE3LsNthpJv/8em93VzGoFev1WGLMJfLjCBreg8STg==",
       "path": "mailkit/2.10.0",
       "hashPath": "mailkit.2.10.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/3.1.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-evidhsli1MSvLUMVt+eSJPW/6VIpcngUnuTkZj9QhnjuRcf9G2RrkuVNPSUY/0eKZD9RM+R9AMrJlBqvcF6WOQ==",
+      "path": "microsoft.aspnetcore.authentication.google/3.1.10",
+      "hashPath": "microsoft.aspnetcore.authentication.google.3.1.10.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.0": {
       "type": "package",

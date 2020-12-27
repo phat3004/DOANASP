@@ -64,9 +64,31 @@ namespace AdminLayout.Controllers
                 return View(userModel);
             }
 
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confirmationLink = Url.Action(nameof(ConfirmEmail), "Account", new { token, email = user.Email }, Request.Scheme);
+
+            var message = new Message(new string[] { "0306181161@caothang.edu.vn" }, "Confirmation email link", confirmationLink, null);
+            await _emailSender.SendEmailAsync(message);
+
             await _userManager.AddToRoleAsync(user, "Visitor");
 
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction(nameof(SuccessRegistration));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+                return View("Error");
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
+        }
+
+        [HttpGet]
+        public IActionResult SuccessRegistration()
+        {
+            return View();
         }
 
         [HttpGet]
@@ -89,14 +111,98 @@ namespace AdminLayout.Controllers
             if (result.Succeeded)
             {
                 var user = await _context.Users.FirstOrDefaultAsync(m => m.Email == userModel.Email);
-                //var user = await _userManager.FindByEmailAsync(userModel.Email);
                 return await RedirectToLocal(returnUrl, user);
             }
             else
             {
-                ModelState.AddModelError("", "Invalid UserName or Password");
+                ModelState.AddModelError("", "Invalid Login Attempt");
                 return View();
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ExternalLogin(string provider, string returnUrl = null)
+        {
+            var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account", new { returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return Challenge(properties, provider);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null)
+        {
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            if (signInResult.Succeeded)
+            {
+                return await RedirectToLocal(returnUrl, new User());
+            }
+            if (signInResult.IsLockedOut)
+            {
+                return RedirectToAction(nameof(ForgotPassword));
+            }
+            else
+            {
+                ViewData["ReturnUrl"] = returnUrl;
+                ViewData["Provider"] = info.LoginProvider;
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                return View("ExternalLogin", new ExternalLoginModel { Email = email });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ExternalLoginConfirmation(ExternalLoginModel model, string returnUrl = null)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+                return View(nameof(Error));
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            IdentityResult result;
+
+            if (user != null)
+            {
+                result = await _userManager.AddLoginAsync(user, info);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return await RedirectToLocal(returnUrl, user);
+                }
+            }
+            else
+            {
+                user = new User();
+                user.Email = model.Email;
+                user.UserName = model.Email;
+                result = await _userManager.CreateAsync(user);
+                if (result.Succeeded)
+                {
+                    result = await _userManager.AddLoginAsync(user, info);
+                    if (result.Succeeded)
+                    {
+                        //TODO: Send an emal for the email confirmation and add a default role as in the Register action
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return await RedirectToLocal(returnUrl, user);
+                    }
+                }
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.TryAddModelError(error.Code, error.Description);
+            }
+
+            return View(nameof(ExternalLogin), model);
         }
 
         [HttpGet]
@@ -185,6 +291,12 @@ namespace AdminLayout.Controllers
 
         [HttpGet]
         public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Error()
         {
             return View();
         }

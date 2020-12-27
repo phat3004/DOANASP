@@ -829,8 +829,6 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admi
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
-D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -846,3 +844,11 @@ D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Acco
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPasswordConfirmation.cshtml.g.cs
 D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\Error.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\SuccessRegistration.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ExternalAuthentication.cshtml.g.cs
+D:\ASP.NET CORE MVC\ASPDOAN\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ExternalLogin.cshtml.g.cs
