@@ -10,12 +10,12 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<div >
-    <ul class="our-link">
+<div class="our-link">
+    <ul>
         @if (SignInManager.IsSignedIn(User))
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index"
+                <a class="nav-link " asp-controller="Home" asp-action="Index"
                    title="Welcome">Welcome @User.Identity.Name!</a>
             </li>
             <li class="nav-item">
@@ -26,17 +26,18 @@
         }
         else
         {
-            <li><button id="btn-test">Khả API</button></li>
+
             <li>
-                <a class="nav-link text-dark" asp-controller="Account"
+                <a class="nav-link " asp-controller="Account"
                    asp-action="Login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="Account"
+                <a class="nav-link " asp-controller="Account"
                    asp-action="Register">Register</a>
             </li>
+            <li><button id="btn-test">Khả API</button></li>
 
-            
+
         }
     </ul>
 

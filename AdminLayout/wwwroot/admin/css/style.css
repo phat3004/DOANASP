@@ -146,6 +146,9 @@
   margin-left: -10px;
   margin-top: 4px; }
 
+
+
+
 .col-red .navbar .bars:hover {
   background-color: rgba(0, 0, 0, 0.08); }
 
@@ -708,6 +711,8 @@
 
 .col-white .navbar .bars:hover {
   background-color: rgba(0, 0, 0, 0.08); }
+
+
 
 /* Material Icons ============================== */
 .material-icons.md-18 {

@@ -112,10 +112,95 @@
      margin: 0;
      padding: 0;
 }
+.back {
+    background: #e2e2e2;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.div-center {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 1em 2em;
+    border-bottom: 2px solid #ccc;
+    display: table;
+}
+
+div.content {
+    display: table-cell;
+    vertical-align: middle;
+}
+.centered {
+    
+}
+
+#login .container #login-row #login-column #login-box {
+    /*margin-top: 120px;*/
+    max-width: 800px;
+    height: 400px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+    margin-bottom: 120px;
+}
+
+
+    #login .container #login-row #login-column #login-box #login-form {
+        padding: 20px;
+    }
+
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+            margin-top: -85px;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form #mid {
+            margin-left: 40%;
+        }
+
  blockquote {
      margin: 20px 0 20px;
      padding: 30px;
 }
+
+
+ /**/
+
+.navbar-brand, .nav-link, .my-form, .login-form {
+    font-family: Raleway, sans-serif;
+}
+
+.my-form {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+    .my-form .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+.login-form {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+    .login-form .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+/**/
  ul, li, ol{
      list-style: none;
      margin: 0px;

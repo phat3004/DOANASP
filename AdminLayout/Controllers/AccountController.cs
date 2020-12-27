@@ -100,7 +100,7 @@ namespace AdminLayout.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(Areas.Admin.Models.UserLoginModel userModel, string returnUrl = null)
+        public async Task<IActionResult> Login(AdminLayout.Models.UserLoginModel userModel, string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
