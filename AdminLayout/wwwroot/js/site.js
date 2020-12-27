@@ -4,7 +4,7 @@
 // Write your JavaScript code.
 
 $(window).on("load", function () {
-    var cityname = "Ho+Chi+Minh";
+    var cityname = "ho+chi+minh";
     $.ajax({
         //type: GET,
         url: "/API/WeatherAPI/GetWeather",
@@ -18,3 +18,29 @@ $(window).on("load", function () {
         }
     })
 });
+
+showInPopUp = (url, title) => {
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (res) {
+            $('#form-modal .modal-body').html(res);
+            $('#form-modal .modal-title').html(title);
+            $('#form-modal').modal('show');
+            //$.notify('Create completed', { globalPosition: "top center", className ="success" });
+        }
+    })
+}
+
+showCheckoutFail = (title) => {
+    $.ajax({
+        success: function (res) {
+            var result = '<h3 style="text-align: center; " class="alert alert - danger">Giỏ hàng trống - Không thể tiến hành thanh toán</h3>';
+            $('#form-modal .modal-body').html(result);
+            $('#form-modal .modal-title').html(title);
+            $('#form-modal').modal('show');
+            //$.notify('Create completed', { globalPosition: "top center", className ="success" });
+        }
+    })
+}
+

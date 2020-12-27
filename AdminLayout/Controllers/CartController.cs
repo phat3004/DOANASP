@@ -43,6 +43,22 @@ namespace AdminLayout.Controllers
             return View();
         }
 
+        public IActionResult CheckoutCart()
+        {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            return View();
+        }
+
         public List<ProductModel> getAllProduct()
         {
             return _context.Product.ToList();
