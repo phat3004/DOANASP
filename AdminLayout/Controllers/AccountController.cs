@@ -149,6 +149,7 @@ namespace AdminLayout.Controllers
             }
             else
             {
+                
                 ViewData["ReturnUrl"] = returnUrl;
                 ViewData["Provider"] = info.LoginProvider;
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
@@ -184,6 +185,7 @@ namespace AdminLayout.Controllers
                 user = new User();
                 user.Email = model.Email;
                 user.UserName = model.Email;
+                user.EmailConfirmed = true;
                 result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
