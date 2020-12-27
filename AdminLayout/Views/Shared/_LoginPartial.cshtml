@@ -9,7 +9,7 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<div >
+<div>
     <ul class="our-link">
         @if (SignInManager.IsSignedIn(User))
         {
@@ -25,17 +25,17 @@
         }
         else
         {
-            <li><button id="btn-test">Khả API</button></li>
+            <li><button id="btn-test">Date Time</button></li>
             <li>
                 <a class="nav-link text-dark" asp-controller="Account"
                    asp-action="Login">Login</a>
-            </li>
+            </li>          
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-controller="Account"
                    asp-action="Register">Register</a>
             </li>
 
-            
+
         }
     </ul>
 

@@ -10,6 +10,7 @@ using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace AdminLayout.Controllers
 {
@@ -21,6 +22,11 @@ namespace AdminLayout.Controllers
         public HomeController(DPContext context)
         {
             _context = context;
+        }
+
+        void Application_Error(object sender, EventArgs e)
+        {
+            
         }
         //public IActionResult Login(string Email, string Pass)
         //{
@@ -68,7 +74,7 @@ namespace AdminLayout.Controllers
         //    //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
         //     //trả về kết quả
         //}
-        
+
         public async Task<IActionResult> Index()
         {
             //ViewBag.USer = name;
@@ -77,7 +83,8 @@ namespace AdminLayout.Controllers
 
         public async Task<IActionResult> Test()
         {
-            return Json("Sao Anh Khả Đẹp Trai Thế Nhò??!!");
+            DateTime now = DateTime.Now;
+            return Json("Time: "+ now );
         }
 
         public IActionResult Privacy()

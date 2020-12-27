@@ -31,29 +31,37 @@ namespace AdminLayout.Areas.Admin.Controllers
             var category = from c in _context.Categorys select c;
             ViewBag.Category = new SelectList(category, "CategoryID", "Name"); // danh sách Loại SP
 
-            var supplier = from a in _context.Suppliers select a;
+            var supplier = from s in _context.Suppliers select s;
             ViewBag.Supplier = new SelectList(supplier, "SupplierID", "Name"); // danh sách nhà sản xuất
 
             //2. Tạo câu truy vấn kết 2 bảng bằng mệnh đề join
-            var sp = from l in _context.Categorys
-                     join c in _context.Products on l.CategoryID equals c.CategoryID
+            var sp = from /*l in _context.Categorys*/
+                     /*join*/ c in _context.Products /*on l.CategoryID equals c.CategoryID*/
                      join a in _context.Suppliers on c.SupplierID equals a.SupplierID
-                     select new { c.Name, c.Price, c.CategoryID, c.Category, c.Img, c.ProductID,c.Supplier};
-
+                     select new { c.Name, c.Price,/* l.CategoryID, namecategory = l.Name,*/ c.Img, c.ProductID,namesupplier = a.Name, c.Supplier,c.Category,a.SupplierID};
             //3. Tìm kiếm chuỗi truy vấn
             if (!String.IsNullOrEmpty(searchString))
             {
                 sp = sp.Where(s => s.Name.Contains(searchString));
             }
-            //4. Tìm kiếm theo CategoryID
-            if (!String.IsNullOrEmpty(Category))
-            {
-                sp = sp.Where(x => x.Category.Name.Contains(Category));
-            }
             if (!String.IsNullOrEmpty(Supplier))
             {
-                sp = sp.Where(x => x.Supplier.Name.Contains(Supplier));
+                sp = sp.Where(x => x.namesupplier.Contains(Supplier));
             }
+            //4. Tìm kiếm theo CategoryID
+            //if (!String.IsNullOrEmpty(Category) && !String.IsNullOrEmpty(Supplier))
+            //{
+            //    sp = sp.Where(x => x.namecategory.Contains(Category));
+            //    sp = sp.Where(y => y.namesupplier.Contains(Supplier));
+            //}
+            //else if (!String.IsNullOrEmpty(Supplier))
+            //{
+            //    sp = sp.Where(x => x.namesupplier.Contains(Supplier));
+            //}
+            //else if(!String.IsNullOrEmpty(Category))
+            //{
+            //    sp = sp.Where(x => x.namecategory.Contains(Category));
+            //}
             //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
             List<ProductModel> listproduct = new List<ProductModel>();
             foreach (var item in sp)

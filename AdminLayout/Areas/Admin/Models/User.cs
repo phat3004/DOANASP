@@ -14,5 +14,6 @@ namespace AdminLayout.Areas.Admin.Models
         public string Avatar { get; set; }
 
         public ICollection<OrderModel> listOrder { get; set; }
+
     }
 }
