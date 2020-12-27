@@ -182,9 +182,13 @@ namespace AdminLayout.Controllers
             }
             else
             {
-                user = new User();
-                user.Email = model.Email;
-                user.UserName = model.Email;
+                //user = new User();               
+                //user.Email = model.Email;
+                //user.UserName = model.Email;
+                //user.FirstName = model.Principal.FindFirst(ClaimTypes.GivenName).Value;
+                //user.LastName = model.Principal.FindFirst(ClaimTypes.Surname).Value;
+                model.Principal = info.Principal;
+                user = _mapper.Map<User>(model);
                 user.EmailConfirmed = true;
                 result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -252,7 +256,7 @@ namespace AdminLayout.Controllers
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             var callback = Url.Action(nameof(ResetPassword), "Account", new { token, email = user.Email }, Request.Scheme);
 
-            var message = new Message(new string[] { "0306181161@caothang.edu.vn" }, "Reset password token", callback, null);
+            var message = new Message(new string[] { "0306181161@caothang.edu.vn"}, "Reset password token", callback, null);
             await _emailSender.SendEmailAsync(message);
 
             return RedirectToAction(nameof(ForgotPasswordConfirmation));
