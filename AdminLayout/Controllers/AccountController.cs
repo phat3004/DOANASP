@@ -148,8 +148,7 @@ namespace AdminLayout.Controllers
                 return RedirectToAction(nameof(ForgotPassword));
             }
             else
-            {
-                
+            {                
                 ViewData["ReturnUrl"] = returnUrl;
                 ViewData["Provider"] = info.LoginProvider;
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
@@ -229,11 +228,12 @@ namespace AdminLayout.Controllers
             }
             else
             {
-                return RedirectToAction(nameof(AccountController.AccessDenied), "Account");
-                //if (Url.IsLocalUrl(returnUrl))
-                //    return Redirect(returnUrl);
-                //else
-                //    return RedirectToAction(nameof(HomeController.Index), "Home");
+                //return RedirectToAction(nameof(AccountController.AccessDenied), "Account");
+                if (Url.IsLocalUrl(returnUrl))
+                    //return Redirect(returnUrl);
+                    return RedirectToAction(nameof(AccountController.AccessDenied), "Account");
+                else
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
             }
 
         }

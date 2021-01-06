@@ -1,4 +1,6 @@
-﻿<section>
+﻿@model IEnumerable<AdminLayout.Areas.Admin.Models.User> 
+
+<section>
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
         <!-- User Info -->
@@ -8,7 +10,7 @@
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin </div>
-                <div  class="name" asp-controller="Home" asp-action="Index" title="Welcome">Welcome @User.Identity.Name!</div>
+                <div class="name" asp-controller="Home" asp-action="Index" title="Welcome">Welcome @User.Identity.Name!</div>
 
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -19,7 +21,7 @@
                         <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                         <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                         <li role="separator" class="divider"></li>
-                        <li ><a asp-controller="Account" asp-action="Logout"  asp-area=""><i class="material-icons">input</i>Sign Out</a></li>
+                        <li><a asp-controller="Account" asp-action="Logout" asp-area=""><i class="material-icons">input</i>Sign Out</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +33,7 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
                     <a href="">
-                        
+
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
@@ -737,71 +739,12 @@
                             <table class="table table-hover dashboard-task-infos">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Task</th>
-                                        <th>Status</th>
-                                        <th>Manager</th>
-                                        <th>Progress</th>
+                                        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.LastName)</th>                                      
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Task A</td>
-                                        <td><span class="label bg-green">Doing</span></td>
-                                        <td>John Doe</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Task B</td>
-                                        <td><span class="label bg-blue">To Do</span></td>
-                                        <td>John Doe</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Task C</td>
-                                        <td><span class="label bg-light-blue">On Hold</span></td>
-                                        <td>John Doe</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Task D</td>
-                                        <td><span class="label bg-orange">Wait Approvel</span></td>
-                                        <td>John Doe</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Task E</td>
-                                        <td>
-                                            <span class="label bg-red">Suspended</span>
-                                        </td>
-                                        <td>John Doe</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                <tbody id="list-ddt">
+
                                 </tbody>
                             </table>
                         </div>
@@ -837,3 +780,34 @@
     </div>
 </section>
 </div>
+
+    @section Scripts {
+        <script>
+
+            $(document).ready(function () {
+                $.ajax({
+                    method: "GET",
+                    url: "../api/UserInfoAPI/GetUserLoginInfo",
+
+                    success: function (list) {
+                        listJSON = JSON.parse(list);
+
+                        var data = '';
+                        $.each(listJSON, function (key, value) {
+                            data += '<tr class="result">';
+                            data += '<td>' + value.FirstName + '</td>';
+                            data += '<td>' + value.LastName + '</td>';
+
+                            data += '</tr>';
+
+                        });
+                        $('#list-ddt').append(data);
+                    }
+
+                });
+
+            });
+
+        </script>
+}
+
