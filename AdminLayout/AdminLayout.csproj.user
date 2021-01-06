@@ -16,5 +16,6 @@
     <WebStackScaffolding_DbContextTypeFullName>AdminLayout.Areas.Admin.Data.DPContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
 </Project>

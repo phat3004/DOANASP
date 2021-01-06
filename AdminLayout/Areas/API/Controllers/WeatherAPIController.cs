@@ -15,12 +15,7 @@ namespace AdminLayout.Areas.API.Controllers
     [ApiController]
     public class WeatherAPIController : ControllerBase
     {
-        // GET: api/<WeatherAPIController>
         [HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
 
         public string GetWeather(string city)
         {

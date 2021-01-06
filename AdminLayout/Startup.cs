@@ -1,6 +1,13 @@
 using AdminLayout.Areas.Admin.Data;
+using AdminLayout.Areas.Admin.Models;
+using AutoMapper;
+using EmailService;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,12 +28,53 @@ namespace AdminLayout
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DPContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("DPContext")));
+            services.AddIdentity<User, IdentityRole>(opt =>
+            {
+                opt.Password.RequiredLength = 7;
+                opt.Password.RequireDigit = false;
+                opt.Password.RequireUppercase = false;
+
+                opt.User.RequireUniqueEmail = true;
+
+                opt.SignIn.RequireConfirmedEmail = true;
+            })
+                    .AddEntityFrameworkStores<DPContext>()
+                    .AddDefaultTokenProviders();
+            services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromHours(2));
+
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
             services.AddControllersWithViews();
-            services.AddDbContext<DPContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DPContext")));
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.ConfigureApplicationCookie(o => o.LoginPath = "/Account/Login");
+
+            var emailConfig = Configuration
+                .GetSection("EmailConfiguration")
+                .Get<EmailConfiguration>();
+                        services.AddSingleton(emailConfig);
+                        services.AddScoped<IEmailSender, EmailSender>();
+
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+
+            services.AddAuthentication()
+                .AddGoogle("google", opt =>
+                {
+                    var googleAuth = Configuration.GetSection("Authentication:Google");
+
+                    opt.ClientId = googleAuth["ClientId"];
+                    opt.ClientSecret = googleAuth["ClientSecret"];
+                    opt.SignInScheme = IdentityConstants.ExternalScheme;
+             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,13 +96,15 @@ namespace AdminLayout
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                   name: "Admin",
-                   pattern: "{area:exists}/{controller=AdminHome}/{action=Index}/{id?}");
+                   name: "areas",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
