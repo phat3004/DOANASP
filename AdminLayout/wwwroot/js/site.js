@@ -40,7 +40,6 @@ showCheckout = (url, title) => {
             $('#form-modal .modal-body').html(res);
             $('#form-modal .modal-title').html(title);
             $('#form-modal').modal('show');
-            //$.notify('Create completed', { globalPosition: "top center", className ="success" });
         }
     })
 }
@@ -48,12 +47,17 @@ showCheckout = (url, title) => {
 showCheckoutFail = (title) => {
     $.ajax({
         success: function (res) {
-            var result = '<h3 style="text-align: center; " class="alert alert - danger">Giỏ hàng trống - Không thể tiến hành thanh toán</h3>';
+            var result = '<h3 style="text-align: center; " class="alert alert-danger">Giỏ hàng trống - Không thể tiến hành thanh toán</h3>';
             $('#form-modal .modal-body').html(result);
             $('#form-modal .modal-title').html(title);
             $('#form-modal').modal('show');
-            //$.notify('Create completed', { globalPosition: "top center", className ="success" });
         }
     })
 }
 
+$(document).ready(function () {
+    var interval = setInterval(function () {
+        var momentNow = moment();
+        $('#datetime').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    }, 100);
+});

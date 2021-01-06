@@ -154,5 +154,14 @@ namespace AdminLayout.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> createOrder([Bind("Total, CustomerID, Date")] OrderModel orderModel)
+        {
+            _context.Add(orderModel);
+            await _context.SaveChangesAsync();
+            HttpContext.Session.Remove("cart");
+            return RedirectToAction(actionName: "Index", controllerName: "Home");
+        }
     }
 }

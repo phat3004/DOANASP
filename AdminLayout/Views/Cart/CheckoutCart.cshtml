@@ -1,4 +1,6 @@
 ﻿@{ Layout = null; }
+
+@model AdminLayout.Areas.Admin.Models.OrderModel
 <form action="" method="post">
     <div class="form-group">
         <label for="namecheckout">Tên người nhận:</label>
@@ -25,13 +27,12 @@
                     </tr>
                 </thead>
                 @{ decimal grandtotal = 0;}
-                @{ int stt = 0;
+                @{
                     if (ViewBag.carts != null)
                     {
                         foreach (var item in ViewBag.carts)
                         {
                             string txt_class = "quantity_" + item.Product.ProductID;
-                            stt++;
                             decimal total = item.Product.Price * item.Quantity;
                             grandtotal += total;
                             <tr>
@@ -85,10 +86,13 @@
                 <div class="d-flex gr-total">
                     <h5>Grand Total</h5>
                     <div class="ml-auto h5">@{@grandtotal} </div>
+                    <input type="hidden" asp-for="Total" value="@grandtotal"/>
+                    <input type="hidden" asp-for="CustomerID" value="1" />
+                    <input type="hidden" asp-for="Date" value="@DateTime.Now.ToString("dd/MM/yy HH/mm/ss")" />
                 </div>
                 <hr>
             </div>
         </div>
     </div>
-    <button style="width: 100%" type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
+    <button asp-action="createOrder" style="width: 100%" type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
 </form>

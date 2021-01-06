@@ -23,10 +23,27 @@ namespace AdminLayout.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(/*string Supplier = null*/)
         {
             var dPContext = _context.Product.Include(p => p.Category).Include(p => p.Supplier);
             return View(await dPContext.ToListAsync());
+            //var sup = from s in _context.Supplier select s;
+            //ViewBag.Supplier = new SelectList(sup, "SuplierID", "Name");
+            //var sp = from p in _context.Product
+            //         join s in _context.Supplier on p.SupplierID equals s.SupplierID
+            //         select p;
+            //if (!String.IsNullOrEmpty(Supplier))
+            //{
+            //    sp = sp.Where(x => x.Supplier.Name.Contains(Supplier));
+            //}
+            //List<ProductModel> list = new List<ProductModel>();
+            //foreach(var i in sp)
+            //{
+            //    ProductModel temp = new ProductModel();
+            //    temp = i;
+            //    list.Add(temp);
+            //}
+            //return View(list);
         }
 
         // GET: Admin/Product/Details/5
@@ -52,8 +69,6 @@ namespace AdminLayout.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public IActionResult Create()
         {
-            //ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID");
-            //ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID");
             ViewBag.ListCategory = _context.Category.ToList();
             ViewBag.ListSupplier = _context.Supplier.ToList();
             return View();
@@ -98,8 +113,6 @@ namespace AdminLayout.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            //ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", productModel.CategoryID);
-            //ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID", productModel.SupplierID);
             ViewBag.ListCategory = _context.Category.ToList();
             ViewBag.ListSupplier = _context.Supplier.ToList();
             return View(productModel);

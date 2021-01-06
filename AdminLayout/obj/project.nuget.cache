@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AzRhT82yHTwIg0lr0Y0aD1NDU9CRTKcySX4jAisxmJwpe9If/TapkLx3RFpwQK1P0u60cQtI+McdjZDcm5RVOg==",
+  "dgSpecHash": "cI4PCoLzg8DKEC6D0vjK0KpxLE+hX47Hffdcw7sl8U7TShlV4sRXDyhaVWxZUnUkn7kRVwqayqJDl7jkLo/4Xg==",
   "success": true,
   "projectFilePath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\AdminLayout.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,7 @@
     "C:\\Users\\TiBon\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\TiBon\\.nuget\\packages\\moment.js\\2.29.1\\moment.js.2.29.1.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\nancy\\2.0.0\\nancy.2.0.0.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
@@ -176,12 +177,5 @@
     "C:\\Users\\TiBon\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\TiBon\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\TiBon\\Desktop\\DOANASP\\AdminLayout\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
