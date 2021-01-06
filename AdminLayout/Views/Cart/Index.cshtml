@@ -91,7 +91,7 @@
                 }
                 else
                 {
-                    <div class="col-12 d-flex shopping-box"><a onclick="showInPopUp('@Url.Action("CheckoutCart", "Cart", null, Context.Request.Scheme)','Checkout Confirm')" style="cursor: pointer;color: white" class="ml-auto btn hvr-hover">Checkout</a>
+                    <div class="col-12 d-flex shopping-box"><a onclick="showCheckout('@Url.Action("CheckoutCart", "Cart", null, Context.Request.Scheme)','Checkout Confirm')" style="cursor: pointer;color: white" class="ml-auto btn hvr-hover">Checkout</a>
                     </div>
                 }
             }
@@ -120,8 +120,7 @@
                 }
             });
         });
-    });
-
+    });                                                                                                                                                                                                                   
     </script>
 
 }

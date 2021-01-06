@@ -1449,6 +1449,6 @@ C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\S
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Cart\CheckoutCart.cshtml.g.cs
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
 C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\TiBon\Desktop\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Cart\CheckoutCart.cshtml.g.cs

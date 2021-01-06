@@ -229,19 +229,6 @@
 <!-- End Instagram Feed  -->
 @section Scripts{
     <script>
-        $('a[name=addCart]').click(function () {
-            var id = ($(this).attr('data-id'));
-            $.ajax({
-                url: "@Url.Action("addCart","Cart")",
-                data: { 'id': id },
-                success: function () {
-                    //$("#countCart").html(count);
-                    $("#countCart").load(window.location.href + " #countCart");
-                    $("#cartList").load(window.location.href + " #cartList");
-                    $.notify("Đã thêm vào giỏ hàng", "success",);
-                }
-            })
-        });
 
     </script>
 }
