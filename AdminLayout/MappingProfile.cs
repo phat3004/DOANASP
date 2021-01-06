@@ -14,8 +14,8 @@ namespace AdminLayout
 
             CreateMap<ExternalLoginModel, User>()
                 .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email))
-                .ForMember(u => u.FirstName, opt => opt.MapFrom(x => x.Principal.FindFirst(ClaimTypes.GivenName).Value))
-                .ForMember(u => u.LastName, opt => opt.MapFrom(x => x.Principal.FindFirst(ClaimTypes.Surname).Value));
+                .ForMember(u => u.FirstName, opt => opt.MapFrom(x => x.Principal.FindFirst(ClaimTypes.Surname).Value))
+                .ForMember(u => u.LastName, opt => opt.MapFrom(x => x.Principal.FindFirst(ClaimTypes.GivenName).Value));
         }
     }
 }
