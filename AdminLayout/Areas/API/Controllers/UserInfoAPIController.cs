@@ -18,7 +18,7 @@ namespace AdminLayout.Areas.API.Controllers
 
         public UserInfoAPIController(DPContext context)
         {
-            _context = context;
+            _context = context;  
         }
         // GET: api/<UserInfoAPIController>
         [HttpGet]

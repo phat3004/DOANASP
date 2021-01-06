@@ -19,18 +19,47 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
-            </td>
-        </tr>
-}
+    <tbody id="list-ddt">
+
+        @*@foreach (var item in Model)
+        {
+            <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
+                    </td>
+                </tr>
+
+        }*@
     </tbody>
 </table>
+
+@section Scripts {
+    <script type="text/javascript">
+
+            $(window).on("load", function () {
+                $.ajax({
+                    method: "GET",
+                    url: "../api/UserInfoAPI/GetCategory",
+
+                    success: function (list) {
+                        //listJSON = JSON.parse(list);
+
+                        //var data = '';
+                        //$.each(listJSON, function (key, value) {
+                        //    data += '<td>' + value.Name + '</td>';
+                        //});
+                        //$('#list-ddt').html(data);
+                        alert(list);
+                    }
+
+                });
+
+            });
+
+    </script>
+}

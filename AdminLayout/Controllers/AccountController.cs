@@ -288,7 +288,7 @@ namespace AdminLayout.Controllers
                 return RedirectToAction(nameof(ForgotPassword));
             }
             else
-            {
+            {                
                 ViewData["ReturnUrl"] = returnUrl;
                 ViewData["Provider"] = info.LoginProvider;
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
@@ -383,8 +383,10 @@ namespace AdminLayout.Controllers
             }
             else
             {
+                //return RedirectToAction(nameof(AccountController.AccessDenied), "Account");
                 if (Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
+                    //return Redirect(returnUrl);
+                    return RedirectToAction(nameof(AccountController.AccessDenied), "Account");
                 else
                     return RedirectToAction(nameof(HomeController.Index), "Home");
             }
@@ -429,7 +431,7 @@ namespace AdminLayout.Controllers
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             var callback = Url.Action(nameof(ResetPassword), "Account", new { token, email = user.Email }, Request.Scheme);
 
-            var message = new Message(new string[] { "0306181161@caothang.edu.vn" }, "Reset password token", callback, null);
+            var message = new Message(new string[] { "0306181161@caothang.edu.vn"}, "Reset password token", callback, null);
             await _emailSender.SendEmailAsync(message);
 
             return RedirectToAction(nameof(ForgotPasswordConfirmation));

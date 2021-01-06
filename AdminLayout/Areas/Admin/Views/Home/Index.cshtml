@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AdminLayout.Areas.Admin.Models.User>
+﻿@model IEnumerable<AdminLayout.Areas.Admin.Models.User> 
+
 <section>
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
@@ -739,10 +740,11 @@
                                 <thead>
                                     <tr>
                                         <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-                                        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.LastName)</th>                                      
                                     </tr>
                                 </thead>
                                 <tbody id="list-ddt">
+
                                 </tbody>
                             </table>
                         </div>
@@ -779,31 +781,33 @@
 </section>
 </div>
 
-@section Scripts {
-    <script>
+    @section Scripts {
+        <script>
 
-        $(document).ready(function () {
-            $.ajax({
-                method: "GET",
-                url: "../api/UserInfoAPI/GetUserLoginInfo",
+            $(document).ready(function () {
+                $.ajax({
+                    method: "GET",
+                    url: "../api/UserInfoAPI/GetUserLoginInfo",
 
-                success: function (list) {
-                    listJSON = JSON.parse(list);
+                    success: function (list) {
+                        listJSON = JSON.parse(list);
 
-                    var data = '';
-                    $.each(listJSON, function (key, value) {
-                        data += '<tr class="result">';
-                        data += '<td>' + value.FirstName + '</td>';
-                        data += '<td>' + value.LastName + '</td>';
+                        var data = '';
+                        $.each(listJSON, function (key, value) {
+                            data += '<tr class="result">';
+                            data += '<td>' + value.FirstName + '</td>';
+                            data += '<td>' + value.LastName + '</td>';
 
-                        data += '</tr>';
-                    });
-                    $('#list-ddt').append(data);
-                }
+                            data += '</tr>';
+
+                        });
+                        $('#list-ddt').append(data);
+                    }
+
+                });
 
             });
 
-        });
-
-    </script>
+        </script>
 }
+
