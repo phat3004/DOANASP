@@ -9,9 +9,11 @@ using AdminLayout.Models;
 using AutoMapper;
 using EmailService;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace AdminLayout.Controllers
 {
@@ -33,12 +35,50 @@ namespace AdminLayout.Controllers
         }
         public IActionResult Index()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
         [HttpGet]
         public IActionResult Register()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
@@ -46,6 +86,25 @@ namespace AdminLayout.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserRegistrationModel userModel)
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             if (!ModelState.IsValid)
             {
                 return View(userModel);
@@ -88,12 +147,50 @@ namespace AdminLayout.Controllers
         [HttpGet]
         public IActionResult SuccessRegistration()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -102,6 +199,28 @@ namespace AdminLayout.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AdminLayout.Models.UserLoginModel userModel, string returnUrl = null)
         {
+
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
+
+
             if (!ModelState.IsValid)
             {
                 return View(userModel);
@@ -132,6 +251,27 @@ namespace AdminLayout.Controllers
         [HttpGet]
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null)
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
+
+
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
@@ -160,6 +300,26 @@ namespace AdminLayout.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ExternalLoginConfirmation(ExternalLoginModel model, string returnUrl = null)
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
+
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -181,9 +341,9 @@ namespace AdminLayout.Controllers
             }
             else
             {
-                user = new User();
-                user.Email = model.Email;
-                user.UserName = model.Email;
+                model.Principal = info.Principal;
+                user = _mapper.Map<User>(model);
+                user.EmailConfirmed = true;
                 result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -233,6 +393,25 @@ namespace AdminLayout.Controllers
         [HttpGet]
         public IActionResult ForgotPassword()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
@@ -258,12 +437,50 @@ namespace AdminLayout.Controllers
 
         public IActionResult ForgotPasswordConfirmation()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
         [HttpGet]
         public IActionResult ResetPassword(string token, string email)
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             var model = new ResetPasswordModel { Token = token, Email = email };
             return View(model);
         }
@@ -292,15 +509,75 @@ namespace AdminLayout.Controllers
         [HttpGet]
         public IActionResult ResetPasswordConfirmation()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
         [HttpGet]
         public IActionResult Error()
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
 
-
+        public IActionResult AccessDenied()
+        {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
+            return View();
+        }
     }
 }

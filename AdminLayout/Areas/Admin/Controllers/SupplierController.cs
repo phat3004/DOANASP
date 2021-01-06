@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace AdminLayout.Areas.Admin.Controllers
 {
@@ -23,7 +25,7 @@ namespace AdminLayout.Areas.Admin.Controllers
         // GET: Admin/Supplier
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Suppliers.ToListAsync());
+            return View(await _context.Supplier.ToListAsync());
         }
 
         // GET: Admin/Supplier/Details/5
@@ -34,7 +36,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var supplierModel = await _context.Suppliers
+            var supplierModel = await _context.Supplier
                 .FirstOrDefaultAsync(m => m.SupplierID == id);
             if (supplierModel == null)
             {
@@ -55,11 +57,19 @@ namespace AdminLayout.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel)
+        public async Task<IActionResult> Create([Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel, IFormFile ful)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(supplierModel);
+                await _context.SaveChangesAsync();
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/supplier", supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await ful.CopyToAsync(stream);
+                }
+                supplierModel.Img = supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1];
+                _context.Update(supplierModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -74,7 +84,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var supplierModel = await _context.Suppliers.FindAsync(id);
+            var supplierModel = await _context.Supplier.FindAsync(id);
             if (supplierModel == null)
             {
                 return NotFound();
@@ -87,7 +97,7 @@ namespace AdminLayout.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel)
+        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,Name,Img,Address,Phone")] SupplierModel supplierModel, IFormFile ful)
         {
             if (id != supplierModel.SupplierID)
             {
@@ -99,6 +109,18 @@ namespace AdminLayout.Areas.Admin.Controllers
                 try
                 {
                     _context.Update(supplierModel);
+                    if (ful != null)
+                    {
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/supplier", supplierModel.Img);
+                        System.IO.File.Delete(path);
+                        path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/supplier", supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1]);
+                        using (var stream = new FileStream(path, FileMode.Create))
+                        {
+                            await ful.CopyToAsync(stream);
+                        }
+                        supplierModel.Img = supplierModel.SupplierID + "." + ful.FileName.Split(".")[ful.FileName.Split(".").Length - 1];
+                        _context.Update(supplierModel);
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -125,7 +147,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var supplierModel = await _context.Suppliers
+            var supplierModel = await _context.Supplier
                 .FirstOrDefaultAsync(m => m.SupplierID == id);
             if (supplierModel == null)
             {
@@ -140,15 +162,15 @@ namespace AdminLayout.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var supplierModel = await _context.Suppliers.FindAsync(id);
-            _context.Suppliers.Remove(supplierModel);
+            var supplierModel = await _context.Supplier.FindAsync(id);
+            _context.Supplier.Remove(supplierModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SupplierModelExists(int id)
         {
-            return _context.Suppliers.Any(e => e.SupplierID == id);
+            return _context.Supplier.Any(e => e.SupplierID == id);
         }
     }
 }

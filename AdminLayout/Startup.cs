@@ -43,6 +43,10 @@ namespace AdminLayout
                     .AddDefaultTokenProviders();
             services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromHours(2));
 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             services.AddControllersWithViews();
 
             services.AddAutoMapper(typeof(Startup));
@@ -88,6 +92,7 @@ namespace AdminLayout
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

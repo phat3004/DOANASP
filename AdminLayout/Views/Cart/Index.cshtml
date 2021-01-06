@@ -1,0 +1,126 @@
+﻿  <!-- Start Cart  -->
+@model OrderModel
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Images</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Manipulation</th>
+                                <th>Manipulation</th>
+                            </tr>
+                        </thead>
+                        @{ decimal grandtotal = 0;}
+                            @{ int stt = 0;
+                                if (ViewBag.carts != null)
+                                {
+                                    foreach (var item in ViewBag.carts)
+                                    {
+                                        string txt_class = "quantity_" + item.Product.ProductID;
+                                        stt++;
+                                        decimal total = item.Product.Price * item.Quantity;
+                                        grandtotal += total;
+                                    <tr>
+                                        <td class="thumbnail-img">
+                                            <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
+                                                <img class="img-fluid" src="~/pro/@item.Product.Img" alt="" />
+                                            </a>
+                                        </td>
+                                        <td class="name-pr">
+                                            <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
+                                                @item.Product.Name
+                                            </a>
+                                        </td>
+                                        <td class="price-pr">
+                                            <p>@item.Product.Price</p>
+                                        </td>
+                                        <td class="quantity-box"><input type="number" class="@txt_class" size="4" value="@item.Quantity" min="0" step="1" class="c-input-text qty text"></td>
+                                        <td class="total-pr">
+                                            <p>@total</p>
+                                        </td>
+                                        <td><a href="" data-id="@item.Product.ProductID" class="updateCart">Update</a></td>
+                                        <td><a asp-controller="Cart" asp-action="deleteCart" asp-route-id="@item.Product.ProductID">Delete</a></td>
+                                    </tr>
+                                    }
+                                }//if
+                                else
+                                {
+                                <tr>
+                                    <h2 style="text-align: center;" class="alert alert-danger">Giỏ hàng trống</h2>      
+                                </tr>                                     
+                                }
+                                }                            
+                         </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-lg-8 col-sm-12"></div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="order-box">
+                    <h3>Order summary</h3>
+                    <div class="d-flex">
+                        <h4>Sub Total</h4>
+                        <div class="ml-auto font-weight-bold">@{@grandtotal} </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex">
+                        <h4>Shipping Cost</h4>
+                        <div class="ml-auto font-weight-bold"> Free </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex gr-total">
+                        <h5>Grand Total</h5>
+                        <div class="ml-auto h5">@{@grandtotal} </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            @{ if (grandtotal == 0)
+                {
+                    <div class="col-12 d-flex shopping-box"><a onclick="showCheckoutFail('Không thể thanh toán')" style="cursor: pointer; color:white" class="ml-auto btn hvr-hover">Checkout</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-12 d-flex shopping-box"><a onclick="showCheckout('@Url.Action("CheckoutCart", "Cart", null, Context.Request.Scheme)','Checkout Confirm')" style="cursor: pointer;color: white" class="ml-auto btn hvr-hover">Checkout</a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+    $(document).ready(function () {
+        $(".updateCart").click(function (event) {
+            event.preventDefault();
+            var quantity = $(".quantity_" + $(this).attr("data-id")).val();
+            console.log(quantity);
+            $.ajax({
+                type: "POST",
+                url:"@Url.Action("updateCart","Cart")",
+                data: {
+                    id: $(this).attr("data-id"),
+                    quantity:quantity
+                },
+                success: function (result) {
+                    window.location.href = '@Url.Action("Index","Cart")';
+                }
+            });
+        });
+    });                                                                                                                                                                                                                   
+    </script>
+
+}

@@ -31,7 +31,7 @@ namespace AdminLayout.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.OrderDetailModel", b =>
@@ -59,7 +59,7 @@ namespace AdminLayout.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.OrderModel", b =>
@@ -85,7 +85,7 @@ namespace AdminLayout.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.ProductModel", b =>
@@ -125,7 +125,7 @@ namespace AdminLayout.Migrations
 
                     b.HasIndex("SupplierID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.SupplierModel", b =>
@@ -149,7 +149,7 @@ namespace AdminLayout.Migrations
 
                     b.HasKey("SupplierID");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Supplier");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.User", b =>
@@ -255,15 +255,15 @@ namespace AdminLayout.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9d22add4-b20e-46fa-8a1a-c090b509f1da",
-                            ConcurrencyStamp = "e7831afc-a72f-49cf-97e7-0fd3816c72a0",
+                            Id = "a740cea0-ed27-4e80-838d-1c6c108b85ef",
+                            ConcurrencyStamp = "5d252886-16a8-46d1-ac3f-ba9d3ad98abb",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
-                            Id = "0b0f85ad-b698-4659-b1e2-1cb7b81c10b5",
-                            ConcurrencyStamp = "d64d3c6c-5715-48db-9933-0f23611c062f",
+                            Id = "ed718fc1-cbbc-42f1-bbd2-91adf9fd249c",
+                            ConcurrencyStamp = "3336656a-78a7-4cba-8bf0-e08ee81d9e36",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

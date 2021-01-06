@@ -25,12 +25,12 @@ namespace AdminLayout.Areas.Admin.Data
 
         }
 
-        public DbSet<CategoryModel> Categorys { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<ProductModel> Products { get; set; }
-        public DbSet<SupplierModel> Suppliers { get; set; }
+        public DbSet<CategoryModel> Category { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<ProductModel> Product { get; set; }
+        public DbSet<SupplierModel> Supplier { get; set; }
        
-        public DbSet<OrderModel> Orders { get; set; }
-        public DbSet<OrderDetailModel> OrderDetails { get; set; }
+        public DbSet<OrderModel> Order { get; set; }
+        public DbSet<OrderDetailModel> OrderDetail { get; set; }
     }
 }

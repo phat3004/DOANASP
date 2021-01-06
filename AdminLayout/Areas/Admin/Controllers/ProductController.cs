@@ -23,10 +23,27 @@ namespace AdminLayout.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(/*string Supplier = null*/)
         {
-            var dPContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
+            var dPContext = _context.Product.Include(p => p.Category).Include(p => p.Supplier);
             return View(await dPContext.ToListAsync());
+            //var sup = from s in _context.Supplier select s;
+            //ViewBag.Supplier = new SelectList(sup, "SuplierID", "Name");
+            //var sp = from p in _context.Product
+            //         join s in _context.Supplier on p.SupplierID equals s.SupplierID
+            //         select p;
+            //if (!String.IsNullOrEmpty(Supplier))
+            //{
+            //    sp = sp.Where(x => x.Supplier.Name.Contains(Supplier));
+            //}
+            //List<ProductModel> list = new List<ProductModel>();
+            //foreach(var i in sp)
+            //{
+            //    ProductModel temp = new ProductModel();
+            //    temp = i;
+            //    list.Add(temp);
+            //}
+            //return View(list);
         }
 
         // GET: Admin/Product/Details/5
@@ -37,7 +54,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.Products
+            var productModel = await _context.Product
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
                 .FirstOrDefaultAsync(m => m.ProductID == id);
@@ -52,10 +69,8 @@ namespace AdminLayout.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public IActionResult Create()
         {
-            //ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID");
-            //ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID");
-            ViewBag.ListCategory = _context.Categorys.ToList();
-            ViewBag.ListSupplier = _context.Suppliers.ToList();
+            ViewBag.ListCategory = _context.Category.ToList();
+            ViewBag.ListSupplier = _context.Supplier.ToList();
             return View();
         }
 
@@ -80,8 +95,8 @@ namespace AdminLayout.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categorys, "ProductID", "CategoryID", productModel.Category);
-            ViewData["SupplierID"] = new SelectList(_context.Suppliers, "ProductID", "SupplierID", productModel.Supplier);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "ProductID", "CategoryID", productModel.Category);
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ProductID", "SupplierID", productModel.Supplier);
             return View(productModel);
         }
 
@@ -93,15 +108,13 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.Products.FindAsync(id);
+            var productModel = await _context.Product.FindAsync(id);
             if (productModel == null)
             {
                 return NotFound();
             }
-            //ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", productModel.CategoryID);
-            //ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID", productModel.SupplierID);
-            ViewBag.ListCategory = _context.Categorys.ToList();
-            ViewBag.ListSupplier = _context.Suppliers.ToList();
+            ViewBag.ListCategory = _context.Category.ToList();
+            ViewBag.ListSupplier = _context.Supplier.ToList();
             return View(productModel);
         }
 
@@ -149,8 +162,8 @@ namespace AdminLayout.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categorys, "CategoryID", "CategoryID", productModel.Category);
-            ViewData["SupplierID"] = new SelectList(_context.Suppliers, "SupplierID", "SupplierID", productModel.Supplier);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", productModel.Category);
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "SupplierID", productModel.Supplier);
             return View(productModel);
         }
 
@@ -162,7 +175,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var productModel = await _context.Products
+            var productModel = await _context.Product
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
                 .FirstOrDefaultAsync(m => m.ProductID == id);
@@ -179,15 +192,15 @@ namespace AdminLayout.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var productModel = await _context.Products.FindAsync(id);
-            _context.Products.Remove(productModel);
+            var productModel = await _context.Product.FindAsync(id);
+            _context.Product.Remove(productModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductModelExists(int id)
         {
-            return _context.Products.Any(e => e.ProductID == id);
+            return _context.Product.Any(e => e.ProductID == id);
         }
     }
 }

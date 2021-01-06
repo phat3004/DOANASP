@@ -1,8 +1,8 @@
-﻿@model IEnumerable<AdminLayout.Areas.Admin.Models.ProductModel>
+﻿ @model IEnumerable<AdminLayout.Areas.Admin.Models.ProductModel>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 <h2>Index</h2>
@@ -10,6 +10,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+@*@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <p>
+        NSX : @Html.DropDownList("Supplier", "ALL")
+        <input type="submit"  value="search" />
+    </p>
+}*@
 <table class="table">
     <thead>
         <tr>
@@ -49,7 +56,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
+            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50px;">
                 @Html.DisplayFor(modelItem => item.Content)
             </td>
             <td>

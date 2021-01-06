@@ -23,7 +23,7 @@ namespace AdminLayout.Areas.Admin.Controllers
         // GET: Admin/Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categorys.ToListAsync());
+            return View(await _context.Category.ToListAsync());
         }
 
         // GET: Admin/Category/Details/5
@@ -34,7 +34,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryModel = await _context.Categorys
+            var categoryModel = await _context.Category
                 .FirstOrDefaultAsync(m => m.CategoryID == id);
             if (categoryModel == null)
             {
@@ -74,7 +74,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryModel = await _context.Categorys.FindAsync(id);
+            var categoryModel = await _context.Category.FindAsync(id);
             if (categoryModel == null)
             {
                 return NotFound();
@@ -125,7 +125,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryModel = await _context.Categorys
+            var categoryModel = await _context.Category
                 .FirstOrDefaultAsync(m => m.CategoryID == id);
             if (categoryModel == null)
             {
@@ -140,15 +140,15 @@ namespace AdminLayout.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categoryModel = await _context.Categorys.FindAsync(id);
-            _context.Categorys.Remove(categoryModel);
+            var categoryModel = await _context.Category.FindAsync(id);
+            _context.Category.Remove(categoryModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoryModelExists(int id)
         {
-            return _context.Categorys.Any(e => e.CategoryID == id);
+            return _context.Category.Any(e => e.CategoryID == id);
         }
     }
 }
