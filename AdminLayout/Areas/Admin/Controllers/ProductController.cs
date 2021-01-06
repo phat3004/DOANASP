@@ -35,18 +35,20 @@ namespace AdminLayout.Areas.Admin.Controllers
             ViewBag.Supplier = new SelectList(supplier, "SupplierID", "Name"); // danh sách nhà sản xuất
 
             //2. Tạo câu truy vấn kết 2 bảng bằng mệnh đề join
-            var sp = from /*l in _context.Categorys*/
-                     /*join*/ c in _context.Products /*on l.CategoryID equals c.CategoryID*/
-                     join a in _context.Suppliers on c.SupplierID equals a.SupplierID
-                     select new { c.Name, c.Price,/* l.CategoryID, namecategory = l.Name,*/ c.Img, c.ProductID,namesupplier = a.Name, c.Supplier,c.Category,a.SupplierID};
+            var sp = from l in _context.Categorys
+                     join c in _context.Products on l.CategoryID equals c.CategoryID
+                     select new { c.Name, c.Price, l.CategoryID, namecategory = l.Name, c.Img, c.ProductID, c.Supplier,c.Category};
+            var x = from p in _context.Products
+                    join c in _context.Suppliers on p.SupplierID equals c.SupplierID
+                    select new { p.Name, p.Price, namesuplier = c.Name, p.Img, p.Supplier, c.SupplierID,p.ProductID };
             //3. Tìm kiếm chuỗi truy vấn
             if (!String.IsNullOrEmpty(searchString))
             {
                 sp = sp.Where(s => s.Name.Contains(searchString));
             }
-            if (!String.IsNullOrEmpty(Supplier))
+            if (!String.IsNullOrEmpty(Category))
             {
-                sp = sp.Where(x => x.namesupplier.Contains(Supplier));
+                sp = sp.Where(x => x.namecategory.Contains(Category));
             }
             //4. Tìm kiếm theo CategoryID
             //if (!String.IsNullOrEmpty(Category) && !String.IsNullOrEmpty(Supplier))
@@ -54,10 +56,10 @@ namespace AdminLayout.Areas.Admin.Controllers
             //    sp = sp.Where(x => x.namecategory.Contains(Category));
             //    sp = sp.Where(y => y.namesupplier.Contains(Supplier));
             //}
-            //else if (!String.IsNullOrEmpty(Supplier))
-            //{
-            //    sp = sp.Where(x => x.namesupplier.Contains(Supplier));
-            //}
+            if (!String.IsNullOrEmpty(Supplier))
+            {
+                x = x.Where(x => x.namesuplier.Contains(Supplier));
+            }
             //else if(!String.IsNullOrEmpty(Category))
             //{
             //    sp = sp.Where(x => x.namecategory.Contains(Category));
@@ -70,7 +72,7 @@ namespace AdminLayout.Areas.Admin.Controllers
                 temp.ProductID = item.ProductID;
                 temp.Name = item.Name;
                 temp.Supplier = item.Supplier;
-                temp.Category= item.Category;
+                temp.Category = item.Category;
                 temp.Img = item.Img;
                 listproduct.Add(temp);
             }

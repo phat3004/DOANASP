@@ -11,12 +11,12 @@
 </p>
 @using (Html.BeginForm("Index", "Product", FormMethod.Get))
 {
-<p>
-    Tên sản phẩm: @Html.TextBox("searchString")
-    Loại: @Html.DropDownList("Category", "All")
-    Nhà sản xuất: @Html.DropDownList("Supplier", "All")
-    <input type="submit" value="Tìm kiếm" />
-</p>
+    <p>
+        Tên sản phẩm: @Html.TextBox("searchString")
+        Loại: @Html.DropDownList("Category", "All")
+        Nhà sản xuất: @Html.DropDownList("Supplier", "All")
+        <input type="submit" value="Tìm kiếm" />
+    </p>
 }
 <table class="table">
     <thead>
@@ -48,7 +48,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id = "list-ddt">
         @foreach (var item in Model)
         {
             <tr>
@@ -99,5 +99,38 @@
         </div>
     </div>
 </div>
+@*@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                method: "GET",
+                url: "../api/GetAPI/GetProduct",
+
+                success: function (list) {
+                    listJSON = JSON.parse(list);
+
+                    var data = '';
+                    $.each(listJSON, function (key, value) {
+                        data += '<tr class="result">';
+                        data += '<td>' + value.Name + '</td>';
+                        data += '<td>' + value.Price + '</td>';
+                        data += '<td>' + value.Content + '</td>';
+                        data += '<td>' + value.Status + '</td>';
+                        data += '<td>' + value.Quantity + '</td>';
+                        data += '<td>' + value.Img + '</td>';
+                        data += '<td>' + value.namecategory + '</td>';
+                        data += '<td>' + value.namesuplier + '</td>';
+                        data += '</tr>';
+
+                    });
+                    $('#list-ddt').append(data);
+                }
+
+            });
+
+        });
+
+    </script>
+}*@
 
 

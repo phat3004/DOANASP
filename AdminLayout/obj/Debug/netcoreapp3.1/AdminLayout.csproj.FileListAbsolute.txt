@@ -1317,3 +1317,4 @@ C:\Users\Lenovo\Desktop\DOANASP - Copy\DOANASP\AdminLayout\obj\Debug\netcoreapp3
 C:\Users\Lenovo\Desktop\DOANASP - Copy\DOANASP\AdminLayout\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\Lenovo\Desktop\DOANASP - Copy\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\Desktop\DOANASP - Copy\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\AdminLayout.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\DOANASP - Copy\DOANASP\AdminLayout\obj\Debug\netcoreapp3.1\Razor\Views\Account\ExternalLogin.cshtml.g.cs
