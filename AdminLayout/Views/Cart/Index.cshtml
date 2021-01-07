@@ -18,15 +18,15 @@
                             </tr>
                         </thead>
                         @{ decimal grandtotal = 0;}
-                            @{ int stt = 0;
-                                if (ViewBag.carts != null)
+                        @{ int stt = 0;
+                            if (ViewBag.carts != null)
+                            {
+                                foreach (var item in ViewBag.carts)
                                 {
-                                    foreach (var item in ViewBag.carts)
-                                    {
-                                        string txt_class = "quantity_" + item.Product.ProductID;
-                                        stt++;
-                                        decimal total = item.Product.Price * item.Quantity;
-                                        grandtotal += total;
+                                    string txt_class = "quantity_" + item.Product.ProductID;
+                                    stt++;
+                                    decimal total = item.Product.Price * item.Quantity;
+                                    grandtotal += total;
                                     <tr>
                                         <td class="thumbnail-img">
                                             <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
@@ -48,16 +48,17 @@
                                         <td><a href="" data-id="@item.Product.ProductID" class="updateCart">Update</a></td>
                                         <td><a asp-controller="Cart" asp-action="deleteCart" asp-route-id="@item.Product.ProductID">Delete</a></td>
                                     </tr>
-                                    }
-                                }//if
-                                else
-                                {
-                                <tr>
-                                    <h2 style="text-align: center;" class="alert alert-danger">Giỏ hàng trống</h2>      
-                                </tr>                                     
                                 }
-                                }                            
-                         </tbody>
+                            }//if
+                            else
+                            {
+                                <tr>
+                                    <h2 style="text-align: center;" class="alert alert-danger">Giỏ hàng trống</h2>
+                                </tr>
+
+                            }
+                        }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -86,12 +87,14 @@
             </div>
             @{ if (grandtotal == 0)
                 {
-                    <div class="col-12 d-flex shopping-box"><a onclick="showCheckoutFail('Không thể thanh toán')" style="cursor: pointer; color:white" class="ml-auto btn hvr-hover">Checkout</a>
+                    <div class="col-12 d-flex shopping-box">
+                        <a onclick="showCheckoutFail('Không thể thanh toán')" style="cursor: pointer; color:white" class="ml-auto btn hvr-hover">Checkout</a>
                     </div>
                 }
                 else
                 {
-                    <div class="col-12 d-flex shopping-box"><a onclick="showCheckout('@Url.Action("CheckoutCart", "Cart", null, Context.Request.Scheme)','Checkout Confirm')" style="cursor: pointer;color: white" class="ml-auto btn hvr-hover">Checkout</a>
+                    <div class="col-12 d-flex shopping-box">
+                        <a id="showCheckoutInfo" onclick="showCheckout('@Url.Action("CheckoutCart", "Cart", null, Context.Request.Scheme)','Checkout Confirm')" style="cursor: pointer;color: white" class="ml-auto btn hvr-hover">Checkout</a>
                     </div>
                 }
             }
@@ -99,10 +102,9 @@
     </div>
 </div>
 <!-- End Cart -->
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
+<script>
     $(document).ready(function () {
         $(".updateCart").click(function (event) {
             event.preventDefault();
@@ -120,7 +122,26 @@
                 }
             });
         });
-    });                                                                                                                                                                                                                   
-    </script>
+    });
 
+    $('#showCheckoutInfo').click( function () {
+        var mail = "@User.Identity.Name";
+        setTimeout(
+            function () {
+                $.ajax({
+                    url: "/api/userinfoapi/getuserislogging",
+                    data: { "mail": mail },
+                    success: function (files) {
+                        var data = JSON.parse(files);
+                        $('#namecheckout').html(data[0].LastName);
+                        $("#sdtcheckout").html(data[0].PhoneNumber);
+                        $("#diachicheckout").html(data[0].Address);
+                    }
+                })
+            },
+            50);
+    });
+</script>
 }
+
+

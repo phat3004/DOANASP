@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@using Microsoft.AspNetCore.Identity
+@using AdminLayout.Areas.Admin.Models
+
+@inject SignInManager<User> SignInManager
+
+
+<h3>Use different service for log in:</h3>
+@{
+    var providers = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+    if (!providers.Any())
+    {
+        <div>
+            <p>
+                We couldn't find any external provider
+            </p>
+        </div>
+    }
+    else
+    {
+        <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+            <div>
+                <p>
+                    @foreach (var provider in providers)
+                    {
+                        <input type="submit" class="btn btn-info" value="@provider.Name" name="provider" />
+                    }
+                </p>
+            </div>
+        </form>
+    }
+}
+
