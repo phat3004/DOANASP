@@ -43,7 +43,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -51,7 +50,6 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
@@ -68,7 +66,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -76,7 +73,6 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
@@ -94,7 +90,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -102,9 +97,10 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
+
             if (!ModelState.IsValid)
             {
                 return View(userModel);
@@ -137,6 +133,24 @@ namespace AdminLayout.Controllers
         [HttpGet]
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
+            var cart = HttpContext.Session.GetString("cart");
+            if (cart != null)
+            {
+                List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+                if (dataCart.Count > 0)
+                {
+                    ViewBag.carts = dataCart;
+                    ViewBag.listProduct = _context.Product.ToList();
+                    ViewBag.listCategory = _context.Category.ToList();
+                    ViewBag.listSupplier = _context.Supplier.ToList();
+                    return View();
+                }
+            }
+            ViewBag.carts = null;
+            ViewBag.listProduct = _context.Product.ToList();
+            ViewBag.listCategory = _context.Category.ToList();
+            ViewBag.listSupplier = _context.Supplier.ToList();
+
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
                 return View("Error");
@@ -155,7 +169,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -163,9 +176,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             return View();
         }
 
@@ -180,7 +193,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -188,9 +200,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -208,7 +220,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -216,7 +227,6 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
 
@@ -259,7 +269,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -267,7 +276,6 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
 
@@ -308,7 +316,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -316,9 +323,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
 
             if (!ModelState.IsValid)
                 return View(model);
@@ -403,7 +410,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -411,9 +417,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             return View();
         }
 
@@ -447,7 +453,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -455,9 +460,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             return View();
         }
 
@@ -472,7 +477,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -480,9 +484,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             var model = new ResetPasswordModel { Token = token, Email = email };
             return View(model);
         }
@@ -519,7 +523,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -527,9 +530,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             return View();
         }
 
@@ -544,7 +547,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -552,9 +554,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             return View();
         }
 
@@ -568,7 +570,6 @@ namespace AdminLayout.Controllers
                 {
                     ViewBag.carts = dataCart;
                     ViewBag.listProduct = _context.Product.ToList();
-                    ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
                     ViewBag.listCategory = _context.Category.ToList();
                     ViewBag.listSupplier = _context.Supplier.ToList();
                     return View();
@@ -576,9 +577,9 @@ namespace AdminLayout.Controllers
             }
             ViewBag.carts = null;
             ViewBag.listProduct = _context.Product.ToList();
-            ViewBag.listProductTop4 = _context.Product.ToList().TakeLast(4);
             ViewBag.listCategory = _context.Category.ToList();
             ViewBag.listSupplier = _context.Supplier.ToList();
+
             return View();
         }
     }
