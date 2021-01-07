@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminLayout.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20201226164245_CreateExternalLoginModel")]
-    partial class CreateExternalLoginModel
+    [Migration("20210107085312_CreateDb")]
+    partial class CreateDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace AdminLayout.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.OrderDetailModel", b =>
@@ -61,7 +61,7 @@ namespace AdminLayout.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.OrderModel", b =>
@@ -71,8 +71,8 @@ namespace AdminLayout.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -87,7 +87,7 @@ namespace AdminLayout.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.ProductModel", b =>
@@ -127,7 +127,7 @@ namespace AdminLayout.Migrations
 
                     b.HasIndex("SupplierID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.SupplierModel", b =>
@@ -151,7 +151,7 @@ namespace AdminLayout.Migrations
 
                     b.HasKey("SupplierID");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Supplier");
                 });
 
             modelBuilder.Entity("AdminLayout.Areas.Admin.Models.User", b =>
@@ -161,6 +161,9 @@ namespace AdminLayout.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
@@ -257,15 +260,15 @@ namespace AdminLayout.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9d22add4-b20e-46fa-8a1a-c090b509f1da",
-                            ConcurrencyStamp = "e7831afc-a72f-49cf-97e7-0fd3816c72a0",
+                            Id = "0d2a79fd-ef9f-4fbe-a126-ff7db0e606d0",
+                            ConcurrencyStamp = "1677329e-f3dd-4342-ad4c-35a9c5013136",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
-                            Id = "0b0f85ad-b698-4659-b1e2-1cb7b81c10b5",
-                            ConcurrencyStamp = "d64d3c6c-5715-48db-9933-0f23611c062f",
+                            Id = "a73b7b68-ad84-4ad0-84dc-10eb88781d7b",
+                            ConcurrencyStamp = "668bfad4-8187-4aef-bb41-3a9b061175bb",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

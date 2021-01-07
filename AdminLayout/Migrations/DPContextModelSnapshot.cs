@@ -258,15 +258,15 @@ namespace AdminLayout.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "83b28fee-c35e-45d0-ba47-884eda3bee1b",
-                            ConcurrencyStamp = "32ff3e53-8299-4082-a91d-8c048c0cd46e",
+                            Id = "0d2a79fd-ef9f-4fbe-a126-ff7db0e606d0",
+                            ConcurrencyStamp = "1677329e-f3dd-4342-ad4c-35a9c5013136",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
-                            Id = "a22a8eb3-f85c-475d-8c58-29f16527c4d3",
-                            ConcurrencyStamp = "d2c1be0d-47e2-4ffe-95da-720a77a5acee",
+                            Id = "a73b7b68-ad84-4ad0-84dc-10eb88781d7b",
+                            ConcurrencyStamp = "668bfad4-8187-4aef-bb41-3a9b061175bb",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

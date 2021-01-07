@@ -613,20 +613,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TiBon\\.nuget\\packages\\": {}
+    "C:\\Users\\home\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TiBon\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
+      "projectUniqueName": "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
       "projectName": "EmailService",
-      "projectPath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
-      "packagesPath": "C:\\Users\\TiBon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TiBon\\Desktop\\DOANASP\\EmailService\\obj\\",
+      "projectPath": "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
+      "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\TiBon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\home\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -673,7 +678,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

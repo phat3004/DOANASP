@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AdminLayout.Migrations
 {
-    public partial class CreatingIdentityScheme : Migration
+    public partial class CreateDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace AdminLayout.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -50,7 +51,7 @@ namespace AdminLayout.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categorys",
+                name: "Category",
                 columns: table => new
                 {
                     CategoryID = table.Column<int>(type: "int", nullable: false)
@@ -59,11 +60,11 @@ namespace AdminLayout.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categorys", x => x.CategoryID);
+                    table.PrimaryKey("PK_Category", x => x.CategoryID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Suppliers",
+                name: "Supplier",
                 columns: table => new
                 {
                     SupplierID = table.Column<int>(type: "int", nullable: false)
@@ -75,7 +76,7 @@ namespace AdminLayout.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Suppliers", x => x.SupplierID);
+                    table.PrimaryKey("PK_Supplier", x => x.SupplierID);
                 });
 
             migrationBuilder.CreateTable(
@@ -185,21 +186,21 @@ namespace AdminLayout.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Order",
                 columns: table => new
                 {
                     OrderID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerID = table.Column<int>(type: "int", nullable: false),
+                    CustomerID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsersId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.OrderID);
+                    table.PrimaryKey("PK_Order", x => x.OrderID);
                     table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_UsersId",
+                        name: "FK_Order_AspNetUsers_UsersId",
                         column: x => x.UsersId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -207,7 +208,7 @@ namespace AdminLayout.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Product",
                 columns: table => new
                 {
                     ProductID = table.Column<int>(type: "int", nullable: false)
@@ -223,23 +224,23 @@ namespace AdminLayout.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.ProductID);
+                    table.PrimaryKey("PK_Product", x => x.ProductID);
                     table.ForeignKey(
-                        name: "FK_Products_Categorys_CategoryID",
+                        name: "FK_Product_Category_CategoryID",
                         column: x => x.CategoryID,
-                        principalTable: "Categorys",
+                        principalTable: "Category",
                         principalColumn: "CategoryID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_Suppliers_SupplierID",
+                        name: "FK_Product_Supplier_SupplierID",
                         column: x => x.SupplierID,
-                        principalTable: "Suppliers",
+                        principalTable: "Supplier",
                         principalColumn: "SupplierID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderDetails",
+                name: "OrderDetail",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -251,20 +252,30 @@ namespace AdminLayout.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderDetails", x => x.ID);
+                    table.PrimaryKey("PK_OrderDetail", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Orders_OrderID",
+                        name: "FK_OrderDetail_Order_OrderID",
                         column: x => x.OrderID,
-                        principalTable: "Orders",
+                        principalTable: "Order",
                         principalColumn: "OrderID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Products_ProductID",
+                        name: "FK_OrderDetail_Product_ProductID",
                         column: x => x.ProductID,
-                        principalTable: "Products",
+                        principalTable: "Product",
                         principalColumn: "ProductID",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "0d2a79fd-ef9f-4fbe-a126-ff7db0e606d0", "1677329e-f3dd-4342-ad4c-35a9c5013136", "Visitor", "VISITOR" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "a73b7b68-ad84-4ad0-84dc-10eb88781d7b", "668bfad4-8187-4aef-bb41-3a9b061175bb", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -306,28 +317,28 @@ namespace AdminLayout.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_OrderID",
-                table: "OrderDetails",
-                column: "OrderID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_ProductID",
-                table: "OrderDetails",
-                column: "ProductID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_UsersId",
-                table: "Orders",
+                name: "IX_Order_UsersId",
+                table: "Order",
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_CategoryID",
-                table: "Products",
+                name: "IX_OrderDetail_OrderID",
+                table: "OrderDetail",
+                column: "OrderID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderDetail_ProductID",
+                table: "OrderDetail",
+                column: "ProductID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_CategoryID",
+                table: "Product",
                 column: "CategoryID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_SupplierID",
-                table: "Products",
+                name: "IX_Product_SupplierID",
+                table: "Product",
                 column: "SupplierID");
         }
 
@@ -349,25 +360,25 @@ namespace AdminLayout.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "OrderDetails");
+                name: "OrderDetail");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Order");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Categorys");
+                name: "Category");
 
             migrationBuilder.DropTable(
-                name: "Suppliers");
+                name: "Supplier");
         }
     }
 }
