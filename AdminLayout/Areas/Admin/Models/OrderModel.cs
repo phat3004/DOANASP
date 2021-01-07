@@ -11,7 +11,7 @@ namespace AdminLayout.Areas.Admin.Models
     {
         [Key]
         public int OrderID { get; set; }
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
         [ForeignKey("CustomerID")]
         public Decimal Total { get; set; }
         public DateTime Date { get; set; }

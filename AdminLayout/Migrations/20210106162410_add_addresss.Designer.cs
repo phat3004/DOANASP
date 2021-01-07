@@ -4,14 +4,16 @@ using AdminLayout.Areas.Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdminLayout.Migrations
 {
     [DbContext(typeof(DPContext))]
-    partial class DPContextModelSnapshot : ModelSnapshot
+    [Migration("20210106162410_add_addresss")]
+    partial class add_addresss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,8 +71,8 @@ namespace AdminLayout.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("CustomerID")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -258,15 +260,15 @@ namespace AdminLayout.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "83b28fee-c35e-45d0-ba47-884eda3bee1b",
-                            ConcurrencyStamp = "32ff3e53-8299-4082-a91d-8c048c0cd46e",
+                            Id = "2eeb1df0-d7bd-4ede-ac06-3f1277487244",
+                            ConcurrencyStamp = "13e8900c-57f0-48ad-a69d-9488d4f683c8",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
-                            Id = "a22a8eb3-f85c-475d-8c58-29f16527c4d3",
-                            ConcurrencyStamp = "d2c1be0d-47e2-4ffe-95da-720a77a5acee",
+                            Id = "8bcc04d1-d445-468a-bc93-b5e0a94338a4",
+                            ConcurrencyStamp = "3311b1dc-8128-487b-b020-f00e3b925269",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

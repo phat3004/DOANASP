@@ -26,7 +26,6 @@ $(window).on("load", function () {
             var data = JSON.parse(files);
             var doC = data.temp - 273.15;
             var result = data.city + ": " + doC + "&#8451";
-            console.log(doC);
             $("#lblWeather").html(result);
         }
     })
@@ -61,3 +60,5 @@ $(document).ready(function () {
         $('#datetime').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
     }, 100);
 });
+
+

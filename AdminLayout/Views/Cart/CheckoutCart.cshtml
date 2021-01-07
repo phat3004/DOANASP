@@ -1,98 +1,119 @@
 ﻿@{ Layout = null; }
 
 @model AdminLayout.Areas.Admin.Models.OrderModel
-<form action="" method="post">
-    <div class="form-group">
-        <label for="namecheckout">Tên người nhận:</label>
-        <input type="text" class="form-control" placeholder="Nhập tên người nhận hàng" id="namecheckout">
-    </div>
-    <div class="form-group">
-        <label for="sdt">Số điện thoại:</label>
-        <input type="number" class="form-control" placeholder="Nhập số điện thoại nhận hàng" id="sdt">
-    </div>
-    <div class="form-group">
-        <label for="diachi">Địa chỉ nhận hàng:</label>
-        <input type="text" class="form-control" placeholder="Nhập địa chỉ nhận hàng" id="diachi">
-    </div>
-    <div class="col-lg-12">
-        <div class="table-main table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Images</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                @{ decimal grandtotal = 0;}
-                @{
-                    if (ViewBag.carts != null)
-                    {
-                        foreach (var item in ViewBag.carts)
-                        {
-                            string txt_class = "quantity_" + item.Product.ProductID;
-                            decimal total = item.Product.Price * item.Quantity;
-                            grandtotal += total;
-                            <tr>
-                                <td class="thumbnail-img">
-                                    <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
-                                        <img class="img-fluid" src="~/pro/@item.Product.Img" alt="" />
-                                    </a>
-                                </td>
-                                <td class="name-pr">
-                                    <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
-                                        @item.Product.Name
-                                    </a>
-                                </td>
-                                <td class="price-pr">
-                                    <p>@item.Product.Price</p>
-                                </td>
-                                <td class="quantity-box"><input type="number" class="@txt_class" size="4" value="@item.Quantity" disabled class="c-input-text qty text"></td>
-                                <td class="total-pr">
-                                    <p>@total</p>
-                                </td>
-                            </tr>
-                        }
-                    }//if
-                    else
-                    {
-                        <tr>
-                            <h2 style="text-align: center;" class="alert alert-danger">Giỏ hàng trống</h2>
-                        </tr>
-
-                    }
-                }
-                </tbody>
-            </table>
+    <script src="~/user/js/jquery-3.2.1.min.js"></script>
+    <script src="~/user/js/popper.min.js"></script>
+    <script src="~/user/js/bootstrap.min.js"></script>
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="namecheckout">Tên người nhận:</label>
+            <span id="namecheckout"></span>
         </div>
-    </div>
-    <hr />
-    <div class="row my-12">
-        <div class="col-lg-12 col-sm-12">
-            <div class="order-box">
-                <h1>Order summary</h1>
-                <div class="d-flex">
-                    <h4>Sub Total</h4>
-                    <div class="ml-auto font-weight-bold">@{@grandtotal} </div>
-                </div>
-                <hr class="my-1">
-                <div class="d-flex">
-                    <h4>Shipping Cost</h4>
-                    <div class="ml-auto font-weight-bold"> Free </div>
-                </div>
-                <hr>
-                <div class="d-flex gr-total">
-                    <h5>Grand Total</h5>
-                    <div class="ml-auto h5">@{@grandtotal} </div>
-                    <input type="hidden" asp-for="Total" value="@grandtotal"/>
-                    <input type="hidden" asp-for="CustomerID" value="1" />
-                    <input type="hidden" asp-for="Date" value="@DateTime.Now.ToString("dd/MM/yy HH/mm/ss")" />
-                </div>
-                <hr>
+        <div class="form-group">
+            <label for="sdt">Số điện thoại:</label>
+            <span id="sdtcheckout"></span>
+        </div>
+        <div class="form-group">
+            <label for="diachi">Địa chỉ nhận hàng:</label>
+            <span id="diachicheckout"></span>
+        </div>
+        <div class="col-lg-12">
+            <div class="table-main table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Images</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    @{ decimal grandtotal = 0;}
+                    @{
+                        if (ViewBag.carts != null)
+                        {
+                            foreach (var item in ViewBag.carts)
+                            {
+                                string txt_class = "quantity_" + item.Product.ProductID;
+                                decimal total = item.Product.Price * item.Quantity;
+                                grandtotal += total;
+                                <tr>
+                                    <td class="thumbnail-img">
+                                        <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
+                                            <img class="img-fluid" src="~/pro/@item.Product.Img" alt="" />
+                                        </a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Product.ProductID">
+                                            @item.Product.Name
+                                        </a>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>@item.Product.Price</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" class="@txt_class" size="4" value="@item.Quantity" disabled class="c-input-text qty text"></td>
+                                    <td class="total-pr">
+                                        <p>@total</p>
+                                    </td>
+                                </tr>
+                            }
+                        }//if
+                        else
+                        {
+                            <tr>
+                                <h2 style="text-align: center;" class="alert alert-danger">Giỏ hàng trống</h2>
+                            </tr>
+
+                        }
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-    <button asp-action="createOrder" style="width: 100%" type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
-</form>
+        <hr />
+        <div class="row my-12">
+            <div class="col-lg-12 col-sm-12">
+                <div class="order-box">
+                    <h1>Order summary</h1>
+                    <div class="d-flex">
+                        <h4>Sub Total</h4>
+                        <div class="ml-auto font-weight-bold">@{@grandtotal} </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex">
+                        <h4>Shipping Cost</h4>
+                        <div class="ml-auto font-weight-bold"> Free </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex gr-total">
+                        <h5>Grand Total</h5>
+                        <div class="ml-auto h5">@{@grandtotal} </div>
+                        <input type="hidden" asp-for="Total" value="@grandtotal" />
+                        <input type="hidden" asp-for="CustomerID" value="@User.Identity.Name" />
+                        <input type="hidden" asp-for="Date" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")" />
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <button asp-action="createOrder" style="width: 100%" type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
+    </form>
+
+    @section Scripts{
+        <script>
+        $(window).on("load", function () {
+            var mail = "@User.Identity.Name";
+            $.ajax({
+                url: "/api/userinfoapi/getuserislogging",
+                data: { "mail": mail },
+                success: function (files) {
+                    var data = JSON.parse(files);
+                    $("#namecheckout").html(data[0].LastName);
+                    $("#sdtcheckout").html(data[0].PhoneNumber);
+                    $("#diachicheckout").html(data[0].Address);
+                }
+            })
+    });
+        </script>
+    }

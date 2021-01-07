@@ -36,6 +36,13 @@ namespace AdminLayout.Areas.API.Controllers
             return JsonConvert.SerializeObject(listNewUserLogin);
         }
 
+        [HttpGet]
+        public string GetUserIsLogging(string mail)
+        {
+            var user = from m in _context.User.Where(m => m.Email == mail)
+                       select m;
+            return JsonConvert.SerializeObject(user);
+        }
 
         // GET api/<UserInfoAPIController>/5
         [HttpGet("{id}")]
