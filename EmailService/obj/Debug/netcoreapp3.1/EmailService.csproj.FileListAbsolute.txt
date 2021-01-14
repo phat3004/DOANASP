@@ -25,3 +25,12 @@ C:\Users\home\Desktop\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.
 C:\Users\home\Desktop\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
 C:\Users\home\Desktop\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
 C:\Users\home\Desktop\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\TiBon\Desktop\Năm 3\DOANASP\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb

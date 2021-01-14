@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\EmailService.csproj": {}
+    "C:\\Users\\TiBon\\Desktop\\Năm 3\\DOANASP\\EmailService\\EmailService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\EmailService.csproj": {
+    "C:\\Users\\TiBon\\Desktop\\Năm 3\\DOANASP\\EmailService\\EmailService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
+        "projectUniqueName": "C:\\Users\\TiBon\\Desktop\\Năm 3\\DOANASP\\EmailService\\EmailService.csproj",
         "projectName": "EmailService",
-        "projectPath": "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\EmailService.csproj",
-        "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\home\\Desktop\\DOANASP\\EmailService\\obj\\",
+        "projectPath": "C:\\Users\\TiBon\\Desktop\\Năm 3\\DOANASP\\EmailService\\EmailService.csproj",
+        "packagesPath": "C:\\Users\\TiBon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TiBon\\Desktop\\Năm 3\\DOANASP\\EmailService\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\home\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\TiBon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -66,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
