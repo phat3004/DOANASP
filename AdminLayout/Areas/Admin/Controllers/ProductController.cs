@@ -23,27 +23,61 @@ namespace AdminLayout.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public async Task<IActionResult> Index(/*string Supplier = null*/)
+        public  async Task<IActionResult> Index(string searchString, string Category = null, string Supplier = null)
         {
-            var dPContext = _context.Product.Include(p => p.Category).Include(p => p.Supplier);
-            return View(await dPContext.ToListAsync());
-            //var sup = from s in _context.Supplier select s;
-            //ViewBag.Supplier = new SelectList(sup, "SuplierID", "Name");
-            //var sp = from p in _context.Product
-            //         join s in _context.Supplier on p.SupplierID equals s.SupplierID
-            //         select p;
-            //if (!String.IsNullOrEmpty(Supplier))
+            //var dPContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
+            //return View(await dPContext.ToListAsync());
+            //1. Tạo danh sách danh mục để hiển thị ở giao diện View thông qua DropDownList
+            var category = from c in _context.Category select c;
+            ViewBag.Category = new SelectList(category, "CategoryID", "Name"); // danh sách Loại SP
+
+            var supplier = from s in _context.Supplier select s;
+            ViewBag.Supplier = new SelectList(supplier, "SupplierID", "Name"); // danh sách nhà sản xuất
+
+            //2. Tạo câu truy vấn kết 2 bảng bằng mệnh đề join
+            var sp = from l in _context.Category
+                     join c in _context.Product on l.CategoryID equals c.CategoryID
+                     select new { c.Name, c.Price, l.CategoryID, namecategory = l.Name, c.Img, c.ProductID, c.Supplier,c.Category};
+            var x = from p in _context.Product
+                    join c in _context.Supplier on p.SupplierID equals c.SupplierID
+                    select new { p.Name, p.Price, namesuplier = c.Name, p.Img, p.Supplier, c.SupplierID,p.ProductID };
+            //3. Tìm kiếm chuỗi truy vấn
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sp = sp.Where(s => s.Name.Contains(searchString));
+            }
+            if (!String.IsNullOrEmpty(Category))
+            {
+                sp = sp.Where(x => x.namecategory.Contains(Category));
+            }
+            //4. Tìm kiếm theo CategoryID
+            //if (!String.IsNullOrEmpty(Category) && !String.IsNullOrEmpty(Supplier))
             //{
-            //    sp = sp.Where(x => x.Supplier.Name.Contains(Supplier));
+            //    sp = sp.Where(x => x.namecategory.Contains(Category));
+            //    sp = sp.Where(y => y.namesupplier.Contains(Supplier));
             //}
-            //List<ProductModel> list = new List<ProductModel>();
-            //foreach(var i in sp)
+            if (!String.IsNullOrEmpty(Supplier))
+            {
+                x = x.Where(x => x.namesuplier.Contains(Supplier));
+            }
+            //else if(!String.IsNullOrEmpty(Category))
             //{
-            //    ProductModel temp = new ProductModel();
-            //    temp = i;
-            //    list.Add(temp);
+            //    sp = sp.Where(x => x.namecategory.Contains(Category));
             //}
-            //return View(list);
+            //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
+            List<ProductModel> listproduct = new List<ProductModel>();
+            foreach (var item in sp)
+            {
+                ProductModel temp = new ProductModel();
+                temp.ProductID = item.ProductID;
+                temp.Name = item.Name;
+                temp.Supplier = item.Supplier;
+                temp.Category = item.Category;
+                temp.Img = item.Img;
+                listproduct.Add(temp);
+            }
+            return View(listproduct); //trả về kết quả
+
         }
 
         // GET: Admin/Product/Details/5

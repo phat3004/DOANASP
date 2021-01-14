@@ -46,10 +46,24 @@
                 <div class="right-phone-box">
                     <p><span id="lblWeather"></span></p>
                     <p><span id="datetime"></span></p>
+                    <p>
+                        SL Truy Cap :
+                        <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=470efa23624cdbcdcef86119f97c7bbfe54e88d4'></script>
+                        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/777643/t/13"></script>
+                    </p>
                 </div>
                 <div class="our-link">                    
                     <ul>
-                        <partial name="_LoginPartial" />
+                        @*@if (ViewBag.User == null)
+                        {
+                            <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">Login</a></li>
+                        }
+                        else
+                        {
+                             <li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">@ViewBag.USer</a></li>
+                        }*@
+                        <li><partial name="_LoginPartial" /></li>
+                        @*<li><a onclick="showInPopUp('@Url.Action("Index","Login",null,Context.Request.Scheme)','Login')">Login</a></li>*@
                     </ul>
                 </div>
             </div>

@@ -2,21 +2,22 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = null;
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutXuli.cshtml";
 }
 
 <h2>Index</h2>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a onclick="showInPopUp('@Url.Action("Create","Product",null,Context.Request.Scheme)','Create')">Create</a>
 </p>
-@*@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
 {
     <p>
-        NSX : @Html.DropDownList("Supplier", "ALL")
-        <input type="submit"  value="search" />
+        Tên sản phẩm: @Html.TextBox("searchString")
+        Loại: @Html.DropDownList("Category", "All")
+        Nhà sản xuất: @Html.DropDownList("Supplier", "All")
+        <input type="submit" value="Tìm kiếm" />
     </p>
-}*@
+}
 <table class="table">
     <thead>
         <tr>
@@ -83,3 +84,52 @@
 }
     </tbody>
 </table>
+<div class="modal" tabindex="-1" role="dialog" id="form-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+@*@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                method: "GET",
+                url: "../api/GetAPI/GetProduct",
+
+                success: function (list) {
+                    listJSON = JSON.parse(list);
+
+                    var data = '';
+                    $.each(listJSON, function (key, value) {
+                        data += '<tr class="result">';
+                        data += '<td>' + value.Name + '</td>';
+                        data += '<td>' + value.Price + '</td>';
+                        data += '<td>' + value.Content + '</td>';
+                        data += '<td>' + value.Status + '</td>';
+                        data += '<td>' + value.Quantity + '</td>';
+                        data += '<td>' + value.Img + '</td>';
+                        data += '<td>' + value.namecategory + '</td>';
+                        data += '<td>' + value.namesuplier + '</td>';
+                        data += '</tr>';
+
+                    });
+                    $('#list-ddt').append(data);
+                }
+
+            });
+
+        });
+
+    </script>
+}*@
+
+

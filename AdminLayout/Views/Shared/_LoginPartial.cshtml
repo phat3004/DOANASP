@@ -15,8 +15,9 @@
         @if (SignInManager.IsSignedIn(User))
         {
             <li class="nav-item">
+                <input id="mail" type="hidden" name="name" value="@User.Identity.Name" />
                 <a class="nav-link " asp-controller="Home" asp-action="Index"
-                   title="Welcome">Welcome @User.Identity.Name!</a>
+                   title="Welcome"><span id="infoNamedisplay">@User.Identity.Name</span></a>
             </li>
             <li class="nav-item">
 
@@ -26,16 +27,20 @@
         }
         else
         {
-
             <li>
                 <a class="nav-link " asp-controller="Account"
                    asp-action="Login">Login</a>
-            </li>
+            </li>          
             <li class="nav-item">
                 <a class="nav-link " asp-controller="Account"
                    asp-action="Register">Register</a>
             </li>
         }
     </ul>
-
 </div>
+
+@section Scripts{
+    <script>
+       
+    </script>
+ }

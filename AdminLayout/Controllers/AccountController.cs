@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -12,8 +13,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Amqp.Framing;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Microsoft.IdentityModel.Protocols;
 
 namespace AdminLayout.Controllers
 {
@@ -25,6 +28,17 @@ namespace AdminLayout.Controllers
         private readonly DPContext _context;
         private readonly IEmailSender _emailSender;
 
+        //private Uri RedirectUri
+        //{
+        //    get
+        //    {
+        //        var uriBuilder = new UriBuilder(Request.Url);
+        //        uriBuilder.Query = null;
+        //        uriBuilder.Fragment = null;
+        //        uriBuilder.Path = Url.Action("FacbookCallback");
+        //        return uriBuilder.Uri;
+        //    }
+        //}
         public AccountController(IMapper mapper, UserManager<User> userManager, SignInManager<User> signInManager, DPContext context, IEmailSender emailSender)
         {
             _mapper = mapper;
@@ -77,7 +91,7 @@ namespace AdminLayout.Controllers
             ViewBag.listSupplier = _context.Supplier.ToList();
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserRegistrationModel userModel)
@@ -122,7 +136,7 @@ namespace AdminLayout.Controllers
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var confirmationLink = Url.Action(nameof(ConfirmEmail), "Account", new { token, email = user.Email }, Request.Scheme);
 
-            var message = new Message(new string[] { "0306181161@caothang.edu.vn" }, "Confirmation email link", confirmationLink, null);
+            var message = new Message(new string[] { /*"0306181161@caothang.edu.vn" */ user.Email}, "Confirmation email link", confirmationLink, null);
             await _emailSender.SendEmailAsync(message);
 
             await _userManager.AddToRoleAsync(user, "Visitor");
@@ -206,7 +220,30 @@ namespace AdminLayout.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
+       
+        // Post yêu cầu login bằng dịch vụ ngoài
+        // Provider = Google, Facebook ...
+        public async Task<IActionResult> OnPostAsync(string provider, string returnUrl = null)
+        {
+            // Kiểm tra yêu cầu dịch vụ provider tồn tại
+            var listprovider = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            var provider_process = listprovider.Find((m) => m.Name == provider);
+            if (provider_process == null)
+            {
+                return NotFound("Dịch vụ không chính xác: " + provider);
+            }
 
+            // redirectUrl - là Url sẽ chuyển hướng đến - sau khi CallbackPath (/dang-nhap-tu-google) thi hành xong
+            // nó bằng identity/account/externallogin?handler=Callback
+            // tức là gọi OnGetCallbackAsync
+            var redirectUrl = Url.Page("./ExternalLogin", pageHandler: "Callback", values: new { returnUrl });
+
+            // Cấu hình
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            // Chuyển hướng đến dịch vụ ngoài (Googe, Facebook)
+            return new ChallengeResult(provider, properties);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AdminLayout.Models.UserLoginModel userModel, string returnUrl = null)

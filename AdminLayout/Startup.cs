@@ -1,4 +1,4 @@
-using AdminLayout.Areas.Admin.Data;
+﻿using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
 using AutoMapper;
 using EmailService;
@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using System;
 
 namespace AdminLayout
@@ -58,8 +59,19 @@ namespace AdminLayout
                 .Get<EmailConfiguration>();
                         services.AddSingleton(emailConfig);
                         services.AddScoped<IEmailSender, EmailSender>();
+            services.AddAuthentication()
+    
+            .AddFacebook(facebookOptions => {
+                // Đọc cấu hình
+                IConfigurationSection facebookAuthNSection = Configuration.GetSection("Authentication:Facebook");
+                facebookOptions.AppId = facebookAuthNSection["AppId"];
+                facebookOptions.AppSecret = facebookAuthNSection["AppSecret"];
+                // Thiết lập đường dẫn Facebook chuyển hướng đến
+                facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
+            });
 
-            services.Configure<FormOptions>(o => {
+            services.Configure<FormOptions>(o =>
+            {
                 o.ValueLengthLimit = int.MaxValue;
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;

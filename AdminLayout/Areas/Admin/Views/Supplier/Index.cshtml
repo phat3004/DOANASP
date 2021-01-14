@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutXuli.cshtml";
 }
 
 <h2>Index</h2>
@@ -28,29 +28,57 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Img)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SupplierID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SupplierID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SupplierID">Delete</a>
-            </td>
-        </tr>
-}
+    <tbody id="list-ddt">
+        @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Img)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SupplierID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SupplierID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SupplierID">Delete</a>
+                </td>
+            </tr>
+        }*@
     </tbody>
 </table>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                method: "GET",
+                url: "../api/GetAPI/GetSupplier",
 
+                success: function (list) {
+                    listJSON = JSON.parse(list);
 
+                    var data = '';
+                    $.each(listJSON, function (key, value) {
+                        data += '<tr class="result">';
+                        data += '<td>' + value.Name + '</td>';
+                        data += '<td>' + value.Img + '</td>';
+                        data += '<td>' + value.Address + '</td>';
+                        data += '<td>' + value.Phone + '</td>';                    
+                        data += '</tr>';
+
+                    });
+                    $('#list-ddt').append(data);
+                }
+
+            });
+
+        });
+
+    </script>
+}

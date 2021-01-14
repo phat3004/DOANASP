@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -69,6 +70,7 @@ namespace AdminLayout.Controllers
             var product = _context.Product.Find(id);
             return product;
         }
+
 
         public IActionResult addCart(int id)
         {
@@ -155,6 +157,7 @@ namespace AdminLayout.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Visitor")]
         [HttpPost]
         public async Task<IActionResult> createOrder([Bind("Total, CustomerID, Date")] OrderModel orderModel)
         {

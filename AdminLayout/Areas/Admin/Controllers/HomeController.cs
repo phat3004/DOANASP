@@ -21,7 +21,5 @@ namespace AdminLayout.Areas.Admin.Controllers
         {
             return View();
         }
-
-        
     }
 }

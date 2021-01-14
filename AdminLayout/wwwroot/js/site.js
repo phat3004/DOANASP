@@ -61,4 +61,15 @@ $(document).ready(function () {
     }, 100);
 });
 
-
+$(window).on('load', function () {
+    var mail = $("#mail").val();
+    $.ajax({
+        url: "/api/userinfoapi/getuserislogging",
+        data: { "mail": mail },
+        success: function (files) {
+            var data = JSON.parse(files);
+            var result ='Welcome ' + data[0].FirstName + ' '+ data[0].LastName;
+            $('#infoNamedisplay').html(result);
+        }
+    });
+});

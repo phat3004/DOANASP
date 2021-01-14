@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using AdminLayout.Models;
 using AdminLayout.Areas.Admin.Data;
 using AdminLayout.Areas.Admin.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
@@ -27,6 +28,28 @@ namespace AdminLayout.Controllers
         {
             _context = context;
         }
+
+        void Application_Error(object sender, EventArgs e)
+        {
+            
+        }
+        //public IActionResult Login(string Email, string Pass)
+        //{
+        //    if (!String.IsNullOrEmpty(Email) && !String.IsNullOrEmpty(Pass))
+        //    {
+        //        var custom = from c in _context.Customer
+        //                     where c.Email == Email && c.Password == Pass
+        //                     select new { c.Name };
+        //        //var user =  _context.Customer
+        //        //.FirstOrDefaultAsync(m => m.Email == Email &&  m.Password == Pass);
+        //        return View("Index",custom);
+        //    }
+        //    else
+        //    {
+        //        return NotFound();
+        //    }
+        //}
+        //public IActionResult Index(string? name)
         //public IActionResult Login(string Email, string Pass)
         //{
         //    //1. Tạo danh sách danh mục để hiển thị ở giao diện View thông qua DropDownList
@@ -56,7 +79,7 @@ namespace AdminLayout.Controllers
         //    //5. Chuyển đổi kết quả từ var sang danh sách List<Link>
         //     //trả về kết quả
         //}
-        
+
         public async Task<IActionResult> Index()
         {
             var cart = HttpContext.Session.GetString("cart");
@@ -83,7 +106,8 @@ namespace AdminLayout.Controllers
 
         public async Task<IActionResult> Test()
         {
-            return Json("Sao Anh Khả Đẹp Trai Thế Nhò??!!");
+            DateTime now = DateTime.Now;
+            return Json("Time: "+ now );
         }
 
         public IActionResult Privacy()
