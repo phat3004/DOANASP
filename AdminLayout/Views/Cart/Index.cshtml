@@ -139,7 +139,11 @@
                     }
                 })
             },
-            50);
+            300);
+    });
+
+    $('#orderConfirmed').on('click', function () {
+        $.notify('Đã đặt hàng thành công', 'Success');
     });
 </script>
 }

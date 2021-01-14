@@ -157,14 +157,47 @@ namespace AdminLayout.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize(Roles = "Visitor")]
+        //[Authorize(Roles = "Visitor")]
         [HttpPost]
         public async Task<IActionResult> createOrder([Bind("Total, CustomerID, Date")] OrderModel orderModel)
         {
+            int lastOrderID;
+            try
+            { 
+                lastOrderID = _context.Order
+                .OrderByDescending(x => x.OrderID)
+                .FirstOrDefault().OrderID;
+                lastOrderID++;
+            }
+            catch { lastOrderID = 1; }
+
             _context.Add(orderModel);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); //Save Order
+
+            var cart = HttpContext.Session.GetString("cart");
+            List<Cart> dataCart = JsonConvert.DeserializeObject<List<Cart>>(cart);
+            foreach(var item in dataCart)
+            {
+                OrderDetailModel obj = new OrderDetailModel();
+                obj.OrderID = lastOrderID;
+                obj.ProductID = item.Product.ProductID;
+                obj.Name = item.Product.Name;
+                obj.Amount = item.Quantity;
+                var Price = item.Product.Price * item.Quantity;
+                obj.Price = Price;
+                _context.Add(obj);
+                await _context.SaveChangesAsync();
+            }
+
             HttpContext.Session.Remove("cart");
             return RedirectToAction(actionName: "Index", controllerName: "Home");
         }
+
+        //public IActionResult createOrderDetail([Bind("OrderID, ProductID, Amount, Price")] OrderDetailModel orderDetailModel)
+        //{
+        //    _context.Add(orderDetailModel);
+        //    _context.SaveChangesAsync();
+        //    return Json(true);
+        //}
     }
 }

@@ -97,23 +97,25 @@
                 </div>
             </div>
         </div>
-        <button asp-action="createOrder" style="width: 100%" type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
+        <button id="orderConfirmed" asp-action="createOrder" style="width: 100%" type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
     </form>
 
     @section Scripts{
         <script>
-        $(window).on("load", function () {
-            var mail = "@User.Identity.Name";
-            $.ajax({
-                url: "/api/userinfoapi/getuserislogging",
-                data: { "mail": mail },
-                success: function (files) {
-                    var data = JSON.parse(files);
-                    $("#namecheckout").html(data[0].LastName);
-                    $("#sdtcheckout").html(data[0].PhoneNumber);
-                    $("#diachicheckout").html(data[0].Address);
-                }
-            })
-    });
+            $(document).ready( function () {
+                var mail = "@User.Identity.Name";
+                $.ajax({
+                    url: "/api/userinfoapi/getuserislogging",
+                    data: { "mail": mail },
+                    success: function (files) {
+                        var data = JSON.parse(files);
+                        $("#namecheckout").html(data[0].LastName);
+                        $("#sdtcheckout").html(data[0].PhoneNumber);
+                        $("#diachicheckout").html(data[0].Address);
+                    }
+                })
+            });
+
+
         </script>
     }

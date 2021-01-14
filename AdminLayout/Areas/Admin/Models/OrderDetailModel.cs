@@ -15,6 +15,7 @@ namespace AdminLayout.Areas.Admin.Models
         [ForeignKey("OrderID")]
         public int ProductID { get; set; }
         [ForeignKey("ProductID")]
+        public string Name { get; set; }
         public int Amount { get; set; }
         public decimal Price { get; set; }
         public virtual OrderModel Order { get; set; }
